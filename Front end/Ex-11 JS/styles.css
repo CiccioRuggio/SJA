@@ -1,0 +1,23 @@
+.bold{
+    font-weight: bold;
+}
+
+.blue{
+    color: blue;
+}
+
+div ~ p{
+    color: orange;
+}
+
+div + p{
+    color: green;
+}
+
+div > p{
+    color: blue;
+}
+
+/* div p{
+    color: red;
+} */

@@ -1,0 +1,38 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 10000px; /* To demonstrate scrolling for fixed positioning */
+}
+.core {
+    position: static;
+    width: 1000px;
+    height: 1000px;
+    background-color: rgb(93, 144, 182);
+    top: 50px;
+    left: 50px;
+}
+.box1 {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    background-color: purple;
+    top: 100px;
+    left: 100px;
+}
+.box2 {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-color: orange;
+    top: 10px;
+    left: 10px;
+}
+.navbar {
+    position: sticky;
+    width: 800px;
+    height: 50px;
+    background-color: teal;
+    margin: 0 auto;
+    top: 25px;
+    left: 25px;
+}

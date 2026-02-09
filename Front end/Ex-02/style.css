@@ -1,0 +1,23 @@
+body {
+    margin: 0;
+    padding: 2px;
+    height: 10000px;
+}
+.box1 {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    background-color: purple;
+    top: 100px;
+    left: 100px;
+}
+.box2 {
+    position: sticky;
+    margin: 0 auto;
+    transform: translate(-10%, -10%);
+    width: 100px;
+    height: 100px;
+    background-color: orange;
+    top: 50px;
+    left: 50px;
+}

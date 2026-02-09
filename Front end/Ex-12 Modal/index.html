@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Favorite Movies</title>
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+    <link rel="stylesheet" href="assets/styles/app.css" />
+    <script src="assets/scripts/app.js" defer></script>
+  </head>
+  <body>
+    <div id="backdrop"></div>
+    <div class="modal" id="add-modal">
+      <div class="modal__content">
+        <label for="title">Movie Title</label>
+        <input type="text" name="title" id="title" placeholder="Una Settimana da Dio"/>
+        <label for="image-url">Image URL</label>
+        <input type="text" name="image-url" id="image-url" placeholder="https://..." />
+        <label for="rating">Your Rating</label>
+        <!-- Nell'Input inseriamo: 
+            "type=" il tipo di valore accettato 
+            "step=" di quanto deve essere incrementato o decrementato il valore (in questo caso 1). Modificando questo valore, ad esempio a 0.5, si accetteranno anche valori decimali come 3.5
+            "max=" il valore massimo accettato (in questo caso 5)
+            "min=" il valore minimo accettato (in questo caso 1)
+            "name=" il nome del campo (in questo caso rating)
+            "id=" l'id del campo (in questo caso rating)
+            "placeholder=" un testo di esempio da mostrare all'interno del campo (in questo caso 1-5)
+        -->
+        <input
+          type="number"
+          step="1"
+          max="5"
+          min="1"
+          name="rating"
+          id="rating"
+          placeholder="1-5"
+        />
+      </div>
+      <div class="modal__actions">
+        <button class="btn btn--passive">Cancel</button>
+        <button class="btn btn--success">Add</button>
+      </div>
+    </div>
+    <div class="modal" id="delete-modal">
+      <h2 class="modal__title">Are you sure?</h2>
+      <p class="modal__content">
+        Are you sure you want to delete this item? This action can't be made
+        undone!
+      </p>
+      <div class="modal__actions">
+        <button class="btn btn--passive">No (Cancel)</button>
+        <button class="btn btn--danger">Yes</button>
+      </div>
+    </div>
+
+    <header>
+      <h1>Favorite Movies</h1>
+      <button id="buttonAdd">ADD MOVIE</button>
+    </header>
+
+    <main>
+      <section id="entry-text" class="card">
+        <p>Your personal movie database!</p>
+      </section>
+      <ul id="movie-list"></ul>
+    </main>
+  </body>
+</html>

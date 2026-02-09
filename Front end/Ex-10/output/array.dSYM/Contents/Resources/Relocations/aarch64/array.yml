@@ -1,0 +1,5 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/ciccioruggio/Documents/Accademy/Front end/Ex-10/output/array'
+relocations:     []
+...

@@ -1,0 +1,148 @@
+.main {
+    height: auto;
+    width: auto;
+    margin: 0 auto;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.info {
+    margin: 0;
+}
+
+.mainContainer {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 1fr;
+    justify-content: center;
+    /* flex-direction: row; */
+    /* align-items: flex-start; */
+    width: 95%;
+    margin: 0 auto;
+    border: 2px solid lightgrey;
+    border-radius: 10px;
+    padding: 20px 10px;
+    height: max-content;
+    /* box-sizing: border-box; */
+}
+
+.imgBox {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    height: auto;
+    width: auto;
+    max-height: fit-content;
+    border-radius: 10px;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.bigImg {
+    /* flex: 1; */
+    height: 100%;
+    width: 100%;
+    max-height: 300px;
+    min-height: 150px;
+    max-width: 300px;
+    min-width: 150px;
+    border-radius: 10px;
+    background-color: lightblue;
+    grid-row: span 2;
+    grid-column: span 2;
+    /* margin-right: 10px; */
+}
+
+.tinyImgs {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    /* gap: 10px; */
+    justify-content: space-between;
+    align-items: center;
+    height: auto;
+    width: auto;
+    max-height: max-content;
+    min-height: 150px;
+    max-width: max-content;
+    min-width: 70px;
+    
+}
+
+.tiny1, .tiny2 {
+    height: 100%;
+    width: 100%;
+    max-width: 150px;
+    max-height: 150px;
+    border-radius: 10px;
+}
+
+.tiny1 {
+    background-color: lightgreen;
+}
+.tiny2 {
+    background-color: lightcoral;
+}
+
+.infoBox {
+    display: flex;
+    flex-direction: column;
+    margin: 0px 20px;
+}
+
+hr {
+    border: 1px solid lightgray;
+    margin: 20px 0;
+}
+
+.lowRow {
+    display: flex;
+    /* max-height: 24px; */
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.choiceBox {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    /* gap: 2px; */
+}
+
+.choice1, .choice2, .choice3 {
+    height: auto;
+    width: auto;
+    min-width: 10px;
+    min-height: 10px;
+    max-width: 30px;
+    max-height: 30px;
+    /* border: 2px solid lightgrey; */
+    /* border-radius: 10px; */
+    /* padding: 5px; */
+}
+
+.choice1 {
+    /* background-color: lightblue; */
+}
+.choice2 {
+    /* background-color: lightgreen; */
+}
+.choice3 {
+    /* background-color: lightcoral; */
+}
+
+
+.moreInfo {
+    font-size: 10px;
+    height: auto;
+    min-width: max-content;
+    width: auto;
+    border: 2px solid lightgrey;
+    border-radius: 10px;
+    padding: 10px;
+}
