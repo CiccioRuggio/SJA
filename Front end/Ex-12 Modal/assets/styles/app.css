@@ -10,6 +10,15 @@ body {
   margin: 0;
 }
 
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100vh;
+  margin-top: 80px;
+}
+
 button:focus {
   outline: none;
 }
@@ -22,6 +31,9 @@ header {
   align-items: center;
   padding: 0 2.5rem;
   background: #00329e;
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 
 header h1 {
@@ -185,6 +197,18 @@ input:focus {
 .movie-element__info {
   flex: 2;
   padding: 1rem;
+}
+
+.modal .delete-modal {
+  position: fixed;
+  z-index: 100;
+  background: white;
+  border-radius: 10px;
+  width: 80%;
+  top: 30vh;
+  left: 10%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  display: none;
 }
 
 .card {
