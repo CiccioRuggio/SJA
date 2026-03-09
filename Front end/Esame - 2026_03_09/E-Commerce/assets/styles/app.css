@@ -1,0 +1,96 @@
+.container {
+  width: 340px;
+  margin: 40px auto;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.inner {
+  background: #2f4f73;
+  padding: 10px;
+}
+
+/* IMAGE CONTAINER */
+
+.imgContainer {
+  position: relative;
+  background: white;
+  display: flex;
+}
+
+.logo {
+  width: 100%;
+  display: block;
+}
+
+/* HEART ICON */
+
+.heart {
+  position: absolute;
+  top: 10px;
+  right: 1px;
+  width: 40px;
+  height: 40px;
+  background: white;
+  border-radius: 4px;
+  /* ICON DETAILS */
+  color: rgb(238, 238, 238);
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* BANNER */
+
+.banner {
+  position: absolute;
+  bottom: 10px;
+  left: 3px;
+  display: flex;
+}
+
+.cambio {
+  background: #e5e5e5;
+  padding: 5px 10px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.promo {
+  background: red;
+  color: white;
+  padding: 5px 10px;
+  font-size: 14px;
+  margin-left: 5px;
+}
+
+/* INFO BOX */
+
+.infoBox {
+  margin-top: 10px;
+}
+
+.info {
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.desc {
+  color: #cfd6df;
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+/* TEXT STYLES OVERWRITE */
+
+h3 {
+  color: white;
+  font-size: 18px;
+  margin-top: 0%;
+  margin-bottom: 0;
+}
+
+h4 {
+    margin-bottom: 0%;
+}
