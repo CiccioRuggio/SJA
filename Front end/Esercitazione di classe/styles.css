@@ -1,0 +1,17 @@
+.dimensions {
+    width: 200px;
+    height: 200px;
+}
+
+.dimensions2 {
+    width: 100px;
+    height: 100px;
+}
+
+.red {
+    background-color: red;
+}
+
+.blue {
+    background-color: blue;
+}
