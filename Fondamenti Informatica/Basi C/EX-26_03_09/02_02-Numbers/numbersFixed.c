@@ -19,15 +19,15 @@ int main()
     // --- Validate the count input ---
     do
     {
-        printf("Please insert a number, that's how many numbers you will be asked to insert (0-30): ");
-        if (scanf("%d", &count) == 1 && count >= 0 && count <= 30)
+        printf("Please insert a number, that's how many numbers you will be asked to insert (1-50): ");
+        if (scanf("%d", &count) == 1 && count > 0 && count <= 50)
         {
             validInput = 1;
             while (getchar() != '\n'); // clear buffer after good input too
         }
         else
         {
-            printf("Invalid input. Please insert a number between 0 and 30.\n");
+            printf("Invalid input. Please insert a number between 1 and 50.\n");
             while (getchar() != '\n'); // flush leftover junk from buffer
             validInput = 0;
         }
@@ -37,7 +37,7 @@ int main()
     while (counterNum < count)
     {
         printf("Insert a number: ");
-        if (scanf("%d", &num) == 1 && num > 0 && num <= 50)
+        if (scanf("%d", &num) == 1 && num >= 0 && num <= 30)
         {
             while (getchar() != '\n'); // clear buffer
 
@@ -63,7 +63,7 @@ int main()
         }
         else
         {
-            printf("Invalid input. Please insert a positive integer (1-50).\n");
+            printf("Invalid input. Please insert a positive integer (0-30).\n");
             while (getchar() != '\n'); // flush junk and retry
         }
     }
