@@ -70,9 +70,13 @@ int main()
 
     // --- Print results ---
     if (count > 0)
+    {
         printf("You inserted %d numbers, max: %d, min: %d, average: %.2f, numbers >= 18: %d\n", counterNum, max, min, sum / counterNum, count18);
+    }
     else
+    {
         printf("You inserted %d numbers.\n", counterNum);
+    }
 
     return 0;
 }
