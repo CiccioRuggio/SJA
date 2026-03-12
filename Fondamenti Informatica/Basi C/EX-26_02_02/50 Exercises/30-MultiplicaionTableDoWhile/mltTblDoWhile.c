@@ -5,6 +5,7 @@
 #include <math.h>
 
 int main(void) {
+    system("clear");
     int num, i = 1;
     printf("Welcome to the multiplication table program!\nPress ENTER to continue...");
     getchar();

@@ -1,8 +1,10 @@
 #include <stdio.h>
 #include <math.h>
 #include <unistd.h>
+#include <stdlib.h>
 
 int main(void) {
+    system("clear");
 
     printf("Welcome to the number printer program!\nPress ENTER to continue...");
     getchar();

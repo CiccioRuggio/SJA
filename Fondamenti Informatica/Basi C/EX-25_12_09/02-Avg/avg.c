@@ -1,7 +1,9 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
 int main(void) {
+    system("clear");
     // Queste variabili servono nel caso in cui si voglia calcolare la media
     // di un numero definito di valori inseriti dall'utente
     // int i;

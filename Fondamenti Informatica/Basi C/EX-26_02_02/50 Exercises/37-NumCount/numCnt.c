@@ -5,6 +5,7 @@
 #include <math.h>
 
 int main(void) {
+    system("clear");
     int count, num, positiveCount = 0, negativeCount = 0, zeroCount = 0;
     printf("Welcome to the number counting program!\nPress ENTER to continue...");
     getchar();

@@ -74,6 +74,7 @@ int max2(int a, int b)
 
 int main()
 {
+    system("clear");
     printWelcomeMessage("FUNCTIONS");
 
     int num1 = validateIntInput(), num2 = validateIntInput();

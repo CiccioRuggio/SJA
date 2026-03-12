@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <math.h>
 #include <stdbool.h>
+#include <stdlib.h>
 
 void printWelcomeMessage(char programName[])
 {
@@ -14,6 +15,7 @@ void printWelcomeMessage(char programName[])
 
 int main ()
 {
+    system("clear");
     printWelcomeMessage("COUNTER");
     int num, countPos = 0, countneg = 0;
     float sum = 0;

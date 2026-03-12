@@ -10,6 +10,7 @@ void printWelcomeMessage(char programName[])
 
 int main()
 {
+    system("clear");
     printWelcomeMessage("NUMBERS");
 
     int count = 0, counterNum = 0, max = 0, min = 0, num, count18 = 0;

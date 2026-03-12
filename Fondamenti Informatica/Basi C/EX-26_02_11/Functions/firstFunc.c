@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <math.h>
+#include <stdlib.h>
 
 double sum(double a, double b) {
     return a + b;
@@ -15,6 +16,7 @@ void printWelcomeMessage(char *programName) {
 }
 
 int main(void) {
+    system("clear");
 
     int num1, num2;
     

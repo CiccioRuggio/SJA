@@ -6,6 +6,7 @@
 
 int main(void)
 {
+    system("clear");
     double balance = 0.0; // Initialize the account balance to zero
     int choice;
     double amount;

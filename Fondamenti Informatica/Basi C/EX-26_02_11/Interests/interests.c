@@ -2,9 +2,11 @@
 
 #include <stdio.h>
 #include <math.h>
+#include <stdlib.h>
 
 int main(void)
 {
+    system("clear");
     double /*initial_amount = 100.0,*/ amount = 100.0, interest_rate;
     int years;
 

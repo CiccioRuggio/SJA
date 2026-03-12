@@ -2,8 +2,10 @@
 #include <stdio.h>
 #include <string.h>
 #include <unistd.h>
+#include <stdlib.h>
 
 int main(void) {
+    system("clear");
     char password[20];
     const char correctPassword[] = "PasswordMoltoSicura"; // Define the correct password
     

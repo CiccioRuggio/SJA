@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <math.h>
 #include <stdbool.h>
+#include <stdlib.h>
 
 void printWelcomeMessage(char programName[])
 {
@@ -149,6 +150,7 @@ void loopChoice(int choice)
 
 int main()
 {
+    system("clear");
     printWelcomeMessage("CALCULATOR");
 
     int choice = 0;

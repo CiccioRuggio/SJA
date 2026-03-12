@@ -71,6 +71,7 @@ void swap_int_array(int array[], int size)
 
 int main()
 {
+    system("clear");
     printWelcomeMessage("ARRAYS");
 
     int arraySize = read_int_in_range("Please insert the size of the array", 1, 30);

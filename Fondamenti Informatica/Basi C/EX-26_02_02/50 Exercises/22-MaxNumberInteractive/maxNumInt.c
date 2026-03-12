@@ -1,8 +1,10 @@
 #include <stdio.h>
 #include <math.h>
 #include <unistd.h>
+#include <stdlib.h>
 
 int main(void) {
+    system("clear");
 
     int max = 0, n;
 

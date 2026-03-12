@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <math.h>
 #include <stdbool.h>
+#include <stdlib.h>
 
 void printWelcomeMessage(char programName[])
 {
@@ -18,6 +19,7 @@ void printWelcomeMessage(char programName[])
 
 int main()
 {
+    system("clear");
     printWelcomeMessage("DISCOUNTS");
 
     float amount = 0.0;

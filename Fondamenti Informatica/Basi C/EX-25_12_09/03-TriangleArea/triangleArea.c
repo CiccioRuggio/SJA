@@ -1,7 +1,9 @@
 #include <stdio.h>
 #include <math.h>
+#include <stdlib.h>
 
 int main(void) {
+    system("clear");
     float base, height, area;
 
     printf("Welcome to the triangle area calculation program!\nPlease press ENTER to continue...");

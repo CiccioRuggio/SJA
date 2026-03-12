@@ -1,8 +1,10 @@
 #include <stdio.h>
 #include <math.h>
 #include <unistd.h>
+#include <stdlib.h>
 
 int main(void) {
+    system("clear");
 
     int limit, sum = 0;
     printf("Welcome to the sum calculator program!\nPress ENTER to continue...");

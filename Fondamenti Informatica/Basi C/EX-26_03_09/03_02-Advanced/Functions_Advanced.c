@@ -70,6 +70,7 @@ float average_from_sum(float sum, int count)
 
 int main()
 {
+    system("clear");
     printWelcomeMessage("ADVANCED FUNCTIONS");
 
     int iterations = read_iterations();

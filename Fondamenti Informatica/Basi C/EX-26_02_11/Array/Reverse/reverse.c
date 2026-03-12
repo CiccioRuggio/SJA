@@ -4,6 +4,7 @@
 
 int main(void)
 {
+    system("clear");
     int size;
     printf("Welcome to the array program!\nPLEASE PRESS ENTER TO CONTINUE...\n");
     getchar();

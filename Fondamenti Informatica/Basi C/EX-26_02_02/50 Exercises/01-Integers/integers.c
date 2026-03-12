@@ -1,7 +1,9 @@
 #include <stdio.h>
 #include <math.h>
+#include <stdlib.h>
 
 int main(void) {
+    system("clear");
 
     int num;
 

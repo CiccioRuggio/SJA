@@ -5,6 +5,7 @@
 #include <stdlib.h>
 
 int main(void) {
+    system("clear");
     int n, i = 1;
     printf("Welcome to the number printer program!\nPress ENTER to continue...");
     getchar();

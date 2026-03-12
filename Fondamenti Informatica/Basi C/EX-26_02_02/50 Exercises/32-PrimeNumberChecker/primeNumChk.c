@@ -2,8 +2,10 @@
 #include <stdio.h>
 #include <math.h>
 #include <unistd.h>
+#include <stdlib.h>
 
 int main(void) {
+    system("clear");
     int num, isPrime = 1; // Assume the number is prime until proven otherwise
     printf("Welcome to the prime number checker program!\nPress ENTER to continue...");
     getchar();

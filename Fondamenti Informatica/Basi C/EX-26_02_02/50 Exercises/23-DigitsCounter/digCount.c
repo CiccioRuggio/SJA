@@ -1,8 +1,10 @@
 #include <stdio.h>
 #include <math.h>
 #include <unistd.h>
+#include <stdlib.h>
 
 int main(void) {
+    system("clear");
 
     int n;
     printf("Welcome to the digit counter program!\nPress ENTER to continue...");

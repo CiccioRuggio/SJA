@@ -5,6 +5,7 @@
 #include <math.h>
 
 int main(void) {
+    system("clear");
     int num1, num2, mcd;
     printf("Welcome to the MCD calculator program!\nPress ENTER to continue...");
     getchar();

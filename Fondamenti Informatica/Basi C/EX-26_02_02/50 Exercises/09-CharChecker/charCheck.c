@@ -2,8 +2,10 @@
 #include <math.h>
 #include <unistd.h>
 #include <ctype.h>
+#include <stdlib.h>
 
 int main(void) {
+    system("clear");
 
     char c;
 

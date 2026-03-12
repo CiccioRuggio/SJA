@@ -6,6 +6,7 @@
 
 int main(void)
 {
+    system("clear");
     int height;
     printf("Welcome to the numeric triangle program!\nPress ENTER to continue...");
     getchar();

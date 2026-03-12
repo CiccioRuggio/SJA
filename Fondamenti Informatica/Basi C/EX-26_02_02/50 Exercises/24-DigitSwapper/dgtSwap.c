@@ -1,10 +1,12 @@
 #include <stdio.h>
 #include <math.h>
 #include <unistd.h>
+#include <stdlib.h>
 
 // Invertire un numero intero (es. 123 → 321).
 
 int main(void) {
+    system("clear");
     int num, reversed = 0;
     printf("Welcome to the digit swapper program!\nPress ENTER to continue...");
     getchar();

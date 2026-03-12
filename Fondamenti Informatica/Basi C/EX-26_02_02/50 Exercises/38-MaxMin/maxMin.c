@@ -5,6 +5,7 @@
 #include <math.h>
 
 int main(void) {
+    system("clear");
     int count, num, max, min;
     printf("Welcome to the max and min finder program!\nPress ENTER to continue...");
     getchar();

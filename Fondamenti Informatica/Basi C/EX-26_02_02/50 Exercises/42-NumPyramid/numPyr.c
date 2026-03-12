@@ -6,6 +6,7 @@
 
 int main(void)
 {
+    system("clear");
     int height;
     printf("Welcome to the number pyramid program!\nPress ENTER to continue...");
     getchar();

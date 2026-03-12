@@ -5,6 +5,7 @@
 #include <math.h>
 
 int main(void) {
+    system("clear");
     int choice;
     printf("Welcome to the menu program!\nPress ENTER to continue...");
     getchar();

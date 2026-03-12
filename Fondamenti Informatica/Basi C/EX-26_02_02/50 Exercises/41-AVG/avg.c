@@ -6,6 +6,7 @@
 
 int main(void)
 {
+    system("clear");
     int count, num;
     double sum = 0.0, average;
     printf("Welcome to the average calculator program!\nPress ENTER to continue...\n");

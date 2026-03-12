@@ -6,6 +6,7 @@
 
 int main(void)
 {
+    system("clear");
     int height;
     printf("Welcome to the star triangle program!\nPress ENTER to continue...");
     getchar();

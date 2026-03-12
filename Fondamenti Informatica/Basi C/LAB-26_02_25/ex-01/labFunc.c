@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <math.h>
+#include <stdlib.h>
 
 // int sum (int a, int b)
 // {
@@ -30,6 +31,7 @@
 
 int main (void)
 {
+    system("clear");
     int votes[] = {2, 3, 6, 7, 8, 5, 6, 10};
 
     for (int i = 0; i < sizeof(votes) / sizeof(votes[0]); i++) // sizeof(votes) restituisce la dimensione totale dell'array in byte, mentre sizeof(votes[0]) restituisce la dimensione di un singolo elemento dell'array (in questo caso, un int). Dividendo la dimensione totale per la dimensione di un elemento, otteniamo il numero di elementi nell'array.

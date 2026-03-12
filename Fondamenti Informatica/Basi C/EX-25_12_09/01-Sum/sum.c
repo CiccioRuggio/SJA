@@ -2,8 +2,10 @@
 #include <string.h>
 #include <termios.h>
 #include <unistd.h>
+#include <stdlib.h>
 
 int main(void) {
+    system("clear");
     int a;
     int b;
     int sum;

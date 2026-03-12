@@ -3,8 +3,10 @@
 #include <stdio.h>
 #include <math.h>
 #include <unistd.h>
+#include <stdlib.h>
 
 int main(void) {
+    system("clear");
     int num;
     printf("Welcome to the even checker program!\nPress ENTER to continue...");
     getchar();
