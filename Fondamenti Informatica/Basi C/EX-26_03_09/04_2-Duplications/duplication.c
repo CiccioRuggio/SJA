@@ -19,13 +19,11 @@ int read_int_in_range(const char prompt[], int min, int max)
         if (scanf("%d", &num) == 1 && num >= min && num <= max)
         {
             valid = 1;
-            while (getchar() != '\n')
-                ;
         }
         else
         {
             printf("\n\n\nERROR:\n\tInvalid input. Please insert an integer.\n\n\n");
-            while (getchar() != '\n')
+            while (getchar() != '\n' && getchar() != EOF)
                 ;
         }
     } while (!valid);
@@ -36,12 +34,12 @@ int read_int_in_range(const char prompt[], int min, int max)
 void read_int_array(int arr[], int n)
 {
     for (int i = 0; i < n; i++)
-        arr[i] = read_int_in_range("Insert a number", -32768, 32767);
+        arr[i] = read_int_in_range("Insert a number", INT16_MIN, INT16_MAX);
 }
 
-void print_array(const char label[], int arr[], int n)
+void print_array(const char prompt[], int arr[], int n)
 {
-    printf("%s: ", label);
+    printf("%s: ", prompt);
     for (int i = 0; i < n; i++)
         printf("| %d ", arr[i]);
     printf("|\n");
@@ -69,8 +67,8 @@ int remove_duplicates(int arr[], int n, int compact[])
 
 int main()
 {
-    system("clear");
     printWelcomeMessage("DUPLICATES REMOVAL");
+    system("clear");
 
     int n = read_int_in_range("Enter the array size", 1, 50);
     int arr[n], compact[n];

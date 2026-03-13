@@ -29,13 +29,12 @@ int validateIntInput()
         if (scanf("%d", &num) == 1)
         {
             validInput = 1;
-            while (getchar() != '\n'); // clear buffer after good input too
         }
         else
         {
             //validInput = 0;
             printf("\n\n\nERROR:\n\tInvalid input. Please insert an integer.\n\n\n");
-            while (getchar() != '\n'); // flush leftover junk from buffer
+            while (getchar() != '\n' && getchar() != EOF); // flush leftover junk from buffer
         }
     } while (!validInput);
 
@@ -56,7 +55,7 @@ int abs_int(int x)
 {
     if (x < 0)
     {
-        return x - x - x;
+        return -x;
     }
 
     return x;

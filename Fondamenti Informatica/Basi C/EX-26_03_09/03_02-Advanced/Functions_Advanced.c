@@ -39,13 +39,11 @@ int read_int_in_range(const char prompt[], int min, int max)
         if (scanf("%d", &num) == 1 && num >= min && num <= max)
         {
             valid = 1;
-            while (getchar() != '\n')
-                ; // clear buffer after good input too
         }
         else
         {
             printf("\n\n\nERROR:\n\tInvalid input. Please insert an integer.\n\n\n");
-            while (getchar() != '\n')
+            while (getchar() != '\n' && getchar() != EOF)
                 ; // flush leftover junk from buffer
         }
     } while (!valid);

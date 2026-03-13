@@ -1,6 +1,4 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 
 void printWelcomeMessage(char programName[])
 {
@@ -24,12 +22,11 @@ int main()
         if (scanf("%d", &count) == 1 && count > 0 && count <= 50)
         {
             validInput = 1;
-            while (getchar() != '\n'); // clear buffer after good input too
         }
         else
         {
             printf("Invalid input. Please insert a number between 1 and 50.\n");
-            while (getchar() != '\n'); // flush leftover junk from buffer
+            while (getchar() != '\n' && getchar() != EOF); // flush leftover junk from buffer
             validInput = 0;
         }
     } while (!validInput);
@@ -40,8 +37,6 @@ int main()
         printf("Insert a number: ");
         if (scanf("%d", &num) == 1 && num >= 0 && num <= 30)
         {
-            while (getchar() != '\n'); // clear buffer
-
             counterNum++;
             if (counterNum == 1)
             {
@@ -65,7 +60,7 @@ int main()
         else
         {
             printf("Invalid input. Please insert a positive integer (0-30).\n");
-            while (getchar() != '\n'); // flush junk and retry
+            while (getchar() != '\n' && getchar() != EOF); // flush junk and retry
         }
     }
 
