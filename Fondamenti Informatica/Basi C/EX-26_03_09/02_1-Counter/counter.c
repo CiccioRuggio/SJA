@@ -1,13 +1,6 @@
-#include <stdio.h>
 #include <math.h>
 #include <stdbool.h>
-#include <stdlib.h>
-
-void printWelcomeMessage(char programName[])
-{
-    printf("Welcome to the %s program!\nPress ENTER to continue...", programName);
-    getchar();
-}
+#include "../../Lib/mainFunc.h"
 
 // leggere da input n numeri, terminare a 0.
 // contare i numeri positivi e i negativi e quanti numeri sono stati inseriti in totale (0 escluso)

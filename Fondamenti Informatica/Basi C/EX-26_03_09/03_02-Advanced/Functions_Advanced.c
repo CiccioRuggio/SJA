@@ -19,37 +19,8 @@
 // la validazione deve stare dentro read_int_in_range
 // main deve risultare “pulito” e corto
 
-#include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
-
-void printWelcomeMessage(char programName[])
-{
-    printf("Welcome to the %s program!\nPress ENTER to continue...", programName);
-    getchar();
-}
-
-int read_int_in_range(const char prompt[], int min, int max)
-{
-    int valid = 0, num;
-    do
-    {
-        printf("%s (RANGE: %d - %d): ", prompt, min, max);
-
-        if (scanf("%d", &num) == 1 && num >= min && num <= max)
-        {
-            valid = 1;
-        }
-        else
-        {
-            printf("\n\n\nERROR:\n\tInvalid input. Please insert an integer.\n\n\n");
-            while (getchar() != '\n' && getchar() != EOF)
-                ; // flush leftover junk from buffer
-        }
-    } while (!valid);
-
-    return num;
-}
+#include "../../Lib/mainFunc.h"
 
 int read_iterations()
 {

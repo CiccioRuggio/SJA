@@ -1,13 +1,6 @@
-#include <stdio.h>
 #include <math.h>
 #include <stdbool.h>
-#include <stdlib.h>
-
-void printWelcomeMessage(char programName[])
-{
-    printf("Welcome to the %s program!\nPress ENTER to continue...", programName);
-    getchar();
-}
+#include "../../Lib/mainFunc.h"
 
 double sum(double a, double b)
 {

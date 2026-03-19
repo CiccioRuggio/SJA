@@ -10,15 +10,8 @@
 // nessuna logica nel main oltre alle chiamate e alle printf
 // usare correttamente i tipi di ritorno e i parametri
 
-#include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
-
-void printWelcomeMessage(char programName[])
-{
-    printf("Welcome to the %s program!\nPress ENTER to continue...", programName);
-    getchar();
-}
+#include "../../Lib/mainFunc.h"
 
 int validateIntInput()
 {

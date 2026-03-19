@@ -1,10 +1,4 @@
-#include <stdio.h>
-
-void printWelcomeMessage(char programName[])
-{
-    printf("Welcome to the %s program!\nPress ENTER to continue...", programName);
-    getchar();
-}
+#include "../../Lib/mainFunc.h"
 
 int main()
 {

@@ -1,6 +1,5 @@
-#include <stdio.h>
 #include <math.h>
-#include <stdlib.h>
+#include "../../Lib/mainFunc.h"
 
 double sum(double a, double b) {
     return a + b;
@@ -8,11 +7,6 @@ double sum(double a, double b) {
 
 double avg(double a, double b) {
     return sum(a, b) / 2.0;
-}
-
-void printWelcomeMessage(char *programName) {
-    printf("Welcome to the %s program!\nPress ENTER to continue...", programName);
-    getchar();
 }
 
 int main(void) {

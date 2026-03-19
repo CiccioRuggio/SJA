@@ -1,8 +1,7 @@
 // Scrivere un programma che stampi una tabella che mostra gli interessi che derivano dalla somma di $100 investiti a vari tassi e per vari periodi. L'utente inserirà il tasso di interesse e il numero di anni. La tabella mostrerà il valore della somma iniziale dopo un numero di anni che varia da 1 al numero di anni inseriti e per vari tassi di interesse. Assumendo che la capitalizzazione avvegna ogni anno.
 
-#include <stdio.h>
 #include <math.h>
-#include <stdlib.h>
+#include "../../Lib/mainFunc.h"
 
 int main(void)
 {

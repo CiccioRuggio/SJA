@@ -1,14 +1,13 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include "../../Lib/mainFunc.h"
 
 #define MAX_PRODUCTS 100
 
-void printWelcomeMessage(char programName[])
-{
-    printf("Welcome to the %s program!\nPress ENTER to continue...", programName);
-    getchar();
-    printf("\n\n\n");
-}
+// void printWelcomeMessage(char programName[])
+// {
+//     printf("Welcome to the %s program!\nPress ENTER to continue...", programName);
+//     getchar();
+//     printf("\n\n\n");
+// }
 
 /* Returns the index of the product with the given code, or -1 if not found */
 int find_index(int codes[], int count, int code)
@@ -22,40 +21,13 @@ int find_index(int codes[], int count, int code)
     return -1;
 }
 
-/* Reads an integer in [min, max]; clears buffer on bad input and retries */
-int read_int_in_range(int min, int max)
-{
-    int value;
-    int valid = 0;
-
-    while (!valid)
-    {
-        if (scanf("%d", &value) == 1)
-        {
-            if (value >= min && value <= max)
-                valid = 1;
-            else
-                printf("Value must be between %d and %d. Try again: ", min, max);
-        }
-        else
-        {
-            printf("Invalid input. Try again: ");
-            while (getchar() != '\n' && getchar() != EOF);
-        }
-    }
-    return value;
-}
-
 /* Adds a new product or increases quantity if code already exists */
 void add_or_update(int codes[], int quantities[], int *count, int max)
 {
     int code, qty, idx;
 
-    printf("Enter product code: ");
-    code = read_int_in_range(1, 999999);
-
-    printf("Enter initial quantity: ");
-    qty = read_int_in_range(0, 999999);
+    code = read_int_in_range("Enter product code", 1, 999999);
+    qty = read_int_in_range("Enter initial quantity", 0, 999999);
 
     idx = find_index(codes, *count, code);
 
@@ -82,8 +54,7 @@ void apply_delta(int codes[], int quantities[], int count)
 {
     int code, delta, idx;
 
-    printf("Enter product code: ");
-    code = read_int_in_range(1, 999999);
+    code = read_int_in_range("Enter product code", 1, 999999);
 
     idx = find_index(codes, count, code);
 
@@ -93,8 +64,7 @@ void apply_delta(int codes[], int quantities[], int count)
         return;
     }
 
-    printf("Enter delta (positive = load, negative = unload): ");
-    delta = read_int_in_range(-999999, 999999);
+    delta = read_int_in_range("Enter delta (positive = load, negative = unload)", -999999, 999999);
 
     if (quantities[idx] + delta < 0)
     {
@@ -112,8 +82,7 @@ void search(int codes[], int quantities[], int count)
 {
     int code, idx;
 
-    printf("Enter product code to search: ");
-    code = read_int_in_range(1, 999999);
+    code = read_int_in_range("Enter product code to search", 1, 999999);
 
     idx = find_index(codes, count, code);
 
@@ -132,7 +101,6 @@ void print_menu(void)
     printf("3. Search product\n");
     printf("4. Report\n");
     printf("5. Exit\n");
-    printf("Choose (1-5): ");
 }
 
 /* Prints all products and the total quantity in the warehouse */
@@ -173,7 +141,7 @@ int main(void)
     {
         print_menu();
 
-        choice = read_int_in_range(1, 5);
+        choice = read_int_in_range("Choose", 1, 5);
         printf("\n");
 
         switch (choice)
