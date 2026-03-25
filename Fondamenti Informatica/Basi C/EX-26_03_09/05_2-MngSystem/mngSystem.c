@@ -2,13 +2,6 @@
 
 #define MAX_PRODUCTS 100
 
-// void printWelcomeMessage(char programName[])
-// {
-//     printf("Welcome to the %s program!\nPress ENTER to continue...", programName);
-//     getchar();
-//     printf("\n\n\n");
-// }
-
 /* Returns the index of the product with the given code, or -1 if not found */
 int find_index(int codes[], int count, int code)
 {
@@ -127,7 +120,7 @@ void print_report(int codes[], int quantities[], int count)
     printf("Total items: %d\n", total);
 }
 
-int main(void)
+int main()
 {
     int codes[MAX_PRODUCTS];
     int quantities[MAX_PRODUCTS];
