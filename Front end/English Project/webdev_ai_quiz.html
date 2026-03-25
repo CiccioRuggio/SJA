@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Dev × AI — The Quiz</title>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Outfit:wght@300;600;800&display=swap"
+    rel="stylesheet">
+  <script src="assets/scripts/app.js" defer></script>
+  <link rel="stylesheet" href="assets/styles/app.css" />
+
+</head>
+
+<body>
+  <div class="wrapper">
+
+    <!-- HEADER -->
+    <div class="header">
+      <div class="badge">Steve Jobs Academy · CLASS 41 · Group Activity</div>
+      <h1 onclick="location.reload()" style="cursor:pointer;">Web Dev <span>×</span> <em>AI</em></h1>
+      <p class="subtitle">Test what you know about the future of building for the web.</p>
+    </div>
+
+    <!-- INTRO SCREEN -->
+    <div id="intro" class="intro">
+      <div class="intro-icon">🤖</div>
+      <h2 style="font-size:1.6rem;font-weight:800;color:#fff">Are you ready to level up?</h2>
+      <p>
+        10 questions covering HTML/CSS, JavaScript, AI tools, and how artificial intelligence
+        is changing the way we build websites. Each question has a short explanation so you learn
+        as you play.
+      </p>
+      <div class="info-row">
+        <div class="info-chip"><span>❓</span> 10 questions</div>
+        <div class="info-chip"><span>💡</span> Instant feedback</div>
+        <div class="info-chip"><span>🏆</span> Score at the end</div>
+      </div>
+      <button class="start-btn" onclick="startQuiz()">Start the Quiz →</button>
+    </div>
+
+    <!-- QUIZ SCREEN -->
+    <div id="quiz" class="hidden">
+      <div class="progress-wrap">
+        <div class="progress-meta">
+          <span id="prog-label">Question 1 of 10</span>
+          <span id="prog-score">Score: 0</span>
+        </div>
+        <div class="progress-track">
+          <div class="progress-fill" id="prog-fill" style="width:0%"></div>
+        </div>
+      </div>
+
+      <div class="card" id="q-card">
+        <div class="q-number" id="q-num">QUESTION 01</div>
+        <div class="q-text" id="q-text"></div>
+        <div class="options" id="options"></div>
+        <div class="explanation" id="explanation"></div>
+        <button class="next-btn" id="next-btn" onclick="nextQuestion()">Next →</button>
+      </div>
+    </div>
+
+    <!-- RESULTS SCREEN -->
+    <div id="results" class="results hidden">
+
+      <div class="score-ring">
+        <svg viewBox="0 0 160 160" width="160" height="160">
+          <defs>
+            <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#00ff88" />
+              <stop offset="100%" stop-color="#00d4ff" />
+            </linearGradient>
+          </defs>
+          <circle class="ring-bg" cx="80" cy="80" r="68" />
+          <circle class="ring-fill" id="ring-fill" cx="80" cy="80" r="68" stroke-dasharray="427"
+            stroke-dashoffset="427" />
+        </svg>
+        <div class="score-text">
+          <div class="score-num" id="final-score">0</div>
+          <div class="score-label">OUT OF 10</div>
+        </div>
+      </div>
+
+      <div class="result-title" id="result-title">–</div>
+      <div class="result-msg" id="result-msg">–</div>
+
+      <div class="stats">
+        <div class="stat-box">
+          <div class="stat-val green" id="stat-correct">0</div>
+          <div class="stat-desc">Correct</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-val red" id="stat-wrong">0</div>
+          <div class="stat-desc">Wrong</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-val cyan" id="stat-pct">0%</div>
+          <div class="stat-desc">Accuracy</div>
+        </div>
+      </div>
+
+      <button class="restart-btn" onclick="restartQuiz()">↩ Play Again</button>
+
+    </div>
+    <div class="footer">STEVE JOBS ACADEMY · CLASS 41 BUILD · 2025</div>
+  </div>
+</body>
+
+</html>
