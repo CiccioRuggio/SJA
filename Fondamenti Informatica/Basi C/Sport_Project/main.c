@@ -56,7 +56,6 @@ void insertUser(struct User users[], int position)
     user.sub.totSub = 0.0;
     user.sub.typeSub = 0;
 
-    // TODO: subscription, id
     users[position] = user;
 }
 
