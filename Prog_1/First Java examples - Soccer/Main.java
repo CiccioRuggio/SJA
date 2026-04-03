@@ -7,15 +7,17 @@ public class Main {
         t1Players[0] = p1;
         t1Players[1] = p2;
         t1Players[2] = p3;
-        Team t1 = new Team("\n\nItaly AllTimeLegends", t1Players);
+        Team t1 = new Team("Italy AllTimeLegends", t1Players);
 
-        new ProcessBuilder("clear").inheritIO().start().waitFor();
-        System.out.println(t1.name + "\n\n TEAM COMP:");
+        Player p4 = new Player("Kylian", "Mbappè", 10, Roles.ATT, true, "France");
+        Player p5 = new Player("Olivier", "Giroud", 9, Roles.ATT, false, "France");
+        Player p6 = new Player("Zinedine", "Zidane", 10, Roles.CEN, false, "France");
+        Player[] t2Players = new Player[3];
+        t2Players[0] = p4;
+        t2Players[1] = p5;
+        t2Players[2] = p6;
+        Team t2 = new Team("France AllTimeLegends", t2Players);
 
-        for (Player player : t1.players) {
-            System.out.println(player.toString() + "\nAbbreviation: " + player.getAbbreviation() + "\n\nFull Info:\n" + player.getFullInfo());
-        }
-
-        // creare un metodo che stampi l'abbreviazione di ogni giocatore. Es: Cristiano Ronaldo 7 => CR7
+        new SoccerGUI(t1, t2);
     }
 }

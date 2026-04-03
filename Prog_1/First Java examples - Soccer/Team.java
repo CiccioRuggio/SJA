@@ -1,6 +1,6 @@
 public class Team {
-    public String name;
-    public Player[] players;
+    private String name;
+    private Player[] players;
 
     // Empty constructor
     public Team() {
@@ -11,6 +11,22 @@ public class Team {
     // Parameterized constructor
     public Team(String name, Player[] players) {
         this.name = name;
+        this.players = players;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public Player[] getPlayers() {
+        return this.players;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setPlayers(Player[] players) {
         this.players = players;
     }
 }

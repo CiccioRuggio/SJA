@@ -1,10 +1,12 @@
+
 public class Player {
-    public String name;
-    public String surname;
-    public int shirtNumber;
-    public Roles role;
-    public Nationalities nationality;
-    public boolean captain;
+
+    private String name;
+    private String surname;
+    private int shirtNumber;
+    private Roles role;
+    private Nationalities nationality;
+    private boolean captain;
 
     // Empty constructor — sets default values
     public Player() {
@@ -42,32 +44,68 @@ public class Player {
         char nameChar, surnameChar;
         nameChar = this.name.charAt(0);
         surnameChar = this.surname.charAt(0);
-        return ""+nameChar+surnameChar+this.shirtNumber;
+        return "" + nameChar + surnameChar + this.shirtNumber;
     }
 
     public void setName(String name) {
         this.name = name;
     }
+
+    public String getName() {
+        return this.name;
+    }
+
     public void setSurname(String surname) {
         this.surname = surname;
     }
-    public void setNumber(int number) {
-        this.shirtNumber = number;
+
+    public String getSurname() {
+        return this.surname;
     }
+
+    public void setNumber(int number) {
+        if (number <= 0 || number > 99) {
+            throw new IllegalArgumentException("Invalid shirt number. It must be between 1 and 99.");
+        } else {
+            this.shirtNumber = number;
+        }
+    }
+
+    public int getNumber() {
+        return this.shirtNumber;
+    }
+
     public void setRole(Roles role) {
         this.role = role;
     }
+
+    public Roles getRole() {
+        return this.role;
+    }
+
     public void setCap(boolean captain) {
         this.captain = captain;
     }
 
+    public boolean getCap() {
+        return this.captain;
+    }
+
+    public Nationalities getNationality() {
+        return this.nationality;
+    }
+
+    public void setNationality(Nationalities nationality) {
+        this.nationality = nationality;
+    }
+
     public String getFullInfo() {
         String flag = (this.nationality != null) ? this.nationality.getFlag() : "❓";
-        return  "\n - " + flag +
-                " " + this.shirtNumber +
-                " " + this.surname +
-                " " + this.name.substring(0, 1) +
-                " " + (this.captain ? "©" : "");
+        return "\n - " + flag
+                + " " + this.shirtNumber
+                + " " + this.surname
+                + " " + this.name.substring(0, 1)
+                + " " + (this.captain ? "©" : "");
     }
 }
 
@@ -121,5 +159,10 @@ enum Nationalities {
 
     public String getFlag() {
         return this.flag;
+    }
+
+    @Override
+    public String toString() {
+        return this.flag + " " + this.name().replace("_", " ");
     }
 }
