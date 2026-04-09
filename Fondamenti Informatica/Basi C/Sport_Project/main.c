@@ -75,9 +75,9 @@ int printMenu()
     printf("10. Count subscribers by subscription type\n");
     printf("11. Find subscriber with highest total cost\n");
     printf("12. Calculate average age\n");
-    printf("13. Exit\n");
+    printf("0. Exit\n");
 
-    choice = read_int_in_range("Choice: ", 1, 13);
+    choice = read_int_in_range("Choice: ", 0, 12);
     return choice;
 }
 
@@ -158,14 +158,14 @@ int main()
         case 12:
 
             break;
-        case 13:
+        case 0:
 
             break;
         default:
 
             break;
         }
-    } while (choice != 13);
+    } while (choice != 0);
 
     return 0;
 }
