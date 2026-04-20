@@ -230,13 +230,13 @@ public class SoccerGUI extends JFrame {
         JSpinner   numSpinner   = new JSpinner(new SpinnerNumberModel(
                 existing != null ? existing.getNumber() : 1, 1, 99, 1));
         JComboBox<Roles>        roleBox = new JComboBox<>(Roles.values());
-        JComboBox<Nationalities> natBox = new JComboBox<>(Nationalities.values());
+        JComboBox<Person.Nationalities> natBox = new JComboBox<>(Person.Nationalities.values());
         natBox.setRenderer(new DefaultListCellRenderer() {
             @Override
             public Component getListCellRendererComponent(JList<?> list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
                 super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
-                if (value instanceof Nationalities) {
-                    Nationalities n = (Nationalities) value;
+                if (value instanceof Person.Nationalities) {
+                    Person.Nationalities n = (Person.Nationalities) value;
                     setIcon(emojiIcon(n.getFlag(), 16));
                     setText(n.name().replace("_", " "));
                 }
@@ -274,7 +274,7 @@ public class SoccerGUI extends JFrame {
         out.surname     = surname;
         out.number      = (int) numSpinner.getValue();
         out.role        = (Roles) roleBox.getSelectedItem();
-        out.nationality = (Nationalities) natBox.getSelectedItem();
+        out.nationality = (Person.Nationalities) natBox.getSelectedItem();
         out.captain     = captainBox.isSelected();
         return out;
     }
@@ -295,7 +295,7 @@ public class SoccerGUI extends JFrame {
         int number;
         Roles role;
         boolean captain;
-        Nationalities nationality;
+        Person.Nationalities nationality;
     }
 
     private JLabel centeredLabel(String text, int style, int size, Color color) {

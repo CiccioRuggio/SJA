@@ -1,4 +1,6 @@
+
 public class Main {
+
     public static void main(String[] args) throws Exception {
         Player p1 = new Player("Roberto", "Baggio", 10, Roles.ATT, true, "Italy");
         Player p2 = new Player("Alessandro", "Nesta", 2, Roles.DEF, false, "Italy");
