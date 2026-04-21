@@ -155,6 +155,7 @@ void insertUser(struct User users[], int count, int codes[]) // FUNCTION 1
     // ID is generated from the system, user will not put it by himself
     codes[count] = count + 1;
     user.id = count + 1;
+    printf("\n--- Insert new Subscriber ---\n");
     printf("Name: ");
     scanf("%s", user.name);
     printf("Surname: ");
@@ -174,6 +175,7 @@ void insertUser(struct User users[], int count, int codes[]) // FUNCTION 1
             user.sub.subPeriod = subPeriodIpt;
             user.sub.monthsPrice = updatablePool;
             user.sub.totSub = (user.sub.monthsPrice * user.sub.subPeriod);
+            user.sub.typeSub = typeSubIpt;
             printf("User %s %s inserted CORRECTLY", user.name, user.surname);
         }
         break;
@@ -185,6 +187,7 @@ void insertUser(struct User users[], int count, int codes[]) // FUNCTION 1
             user.sub.subPeriod = subPeriodIpt;
             user.sub.monthsPrice = updatableGym;
             user.sub.totSub = (user.sub.monthsPrice * user.sub.subPeriod);
+            user.sub.typeSub = typeSubIpt;
             printf("User %s %s inserted CORRECTLY", user.name, user.surname);
         }
         break;
@@ -196,6 +199,7 @@ void insertUser(struct User users[], int count, int codes[]) // FUNCTION 1
             user.sub.subPeriod = subPeriodIpt;
             user.sub.monthsPrice = updatableFull;
             user.sub.totSub = (user.sub.monthsPrice * user.sub.subPeriod);
+            user.sub.typeSub = typeSubIpt;
             printf("User %s %s inserted CORRECTLY", user.name, user.surname);
         }
         break;
@@ -204,6 +208,7 @@ void insertUser(struct User users[], int count, int codes[]) // FUNCTION 1
         user.sub.subPeriod = 0;
         user.sub.monthsPrice = 0.0;
         user.sub.totSub = 0.0;
+        user.sub.typeSub = 0;
         printf("User %s %s was inserted as INACTIVE", user.name, user.surname);
         break;
     default:
@@ -211,15 +216,12 @@ void insertUser(struct User users[], int count, int codes[]) // FUNCTION 1
         break;
     }
 
-    // input type, subperiod
-    // se subperiod = 0 => substate = false, monthsprice = 0, totsub = 0
-    // else if subperiod > 0 => substate = true, monthsprice in base al type, totsub = monthsprice * subperiod
-
     users[count] = user;
 }
 
 void printAllUsers(struct User users[], int count) // FUNCTION 2
 {
+    printf("\n--- Show all Subscribers in database ---\n");
     if (count == 0)
     {
         printf("\nUsers not found!");
@@ -240,7 +242,8 @@ int searchById(struct User users[], int count, int codes[]) // FUNCTION 3
 {
     int searchedCode;
     int index;
-    printf("Enter code: ");
+    printf("\n--- Researching a Subscriber ---\n");
+    printf("Enter code ID: ");
     scanf("%d", &searchedCode);
     index = find_index(codes, count, searchedCode);
     if (index != -1)
@@ -274,7 +277,7 @@ void updateSubStatus(struct User users[], int codes[], int count) // FUNCTION 4
                users[index].sub.subPeriod);
 
         printf("\nSelect action:\n");
-        printf("1. Activate (Sets to 1 month by default)\n");
+        printf("1. Activate (Sets to 1 month if inactive)\n");
         printf("0. Deactivate subscription\n");
         printf("Choice: ");
         scanf("%d", &choice);
@@ -296,6 +299,7 @@ void updateSubStatus(struct User users[], int codes[], int count) // FUNCTION 4
             users[index].sub.subPeriod = 0;
             users[index].sub.totSub = 0.0;
             users[index].sub.monthsPrice = 0.0;
+            users[index].sub.typeSub = 0;
             printf("Subscription DEACTIVATED and months cleared.\n");
         }
         else
@@ -321,17 +325,15 @@ void updatePurchasedMonths(struct User users[], int codes[], int count) // FUNCT
 
     if (index != -1)
     {
-        printf("Enter the number of months to purchase (1-12): ");
-        scanf("%d", &newMonths);
+        newMonths = read_int_in_range("Enter the number of months to purchase", 1, 12);
 
-        if (newMonths > 0 && newMonths <= 12)
+        switch (users[index].sub.typeSub)
         {
-            switch (users[index].sub.typeSub)
-            {
             case 1:
                 users[index].sub.monthsPrice = updatablePool;
                 users[index].sub.subPeriod += newMonths;
                 users[index].sub.totSub = users[index].sub.monthsPrice * users[index].sub.subPeriod;
+                users[index].sub.subState = true;
                 printf("User: %s %s\n", users[index].name, users[index].surname);
                 printf("Purchase successful!\n");
                 printf("Status: Active | New Total: %.2f\n", users[index].sub.totSub);
@@ -340,6 +342,7 @@ void updatePurchasedMonths(struct User users[], int codes[], int count) // FUNCT
                 users[index].sub.monthsPrice = updatableGym;
                 users[index].sub.subPeriod += newMonths;
                 users[index].sub.totSub = users[index].sub.monthsPrice * users[index].sub.subPeriod;
+                users[index].sub.subState = true;
                 printf("User: %s %s\n", users[index].name, users[index].surname);
                 printf("Purchase successful!\n");
                 printf("Status: Active | New Total: %.2f\n", users[index].sub.totSub);
@@ -348,6 +351,7 @@ void updatePurchasedMonths(struct User users[], int codes[], int count) // FUNCT
                 users[index].sub.monthsPrice = updatableFull;
                 users[index].sub.subPeriod += newMonths;
                 users[index].sub.totSub = users[index].sub.monthsPrice * users[index].sub.subPeriod;
+                users[index].sub.subState = true;
                 printf("User: %s %s\n", users[index].name, users[index].surname);
                 printf("Purchase successful!\n");
                 printf("Status: Active | New Total: %.2f\n", users[index].sub.totSub);
@@ -356,34 +360,12 @@ void updatePurchasedMonths(struct User users[], int codes[], int count) // FUNCT
                 users[index].sub.monthsPrice = 0.0;
                 users[index].sub.subPeriod = 0;
                 users[index].sub.totSub = 0.0;
+                users[index].sub.subState = false;
                 printf("User: %s %s\n", users[index].name, users[index].surname);
                 printf("Purchase failed!\n");
                 printf("Status: Inactive | Total: %.2f\n", users[index].sub.totSub);
             default:
                 printf("Invalid typeSub");
-            }
-
-            // printf("Insert price per month: ");
-            // scanf("%f", &pricePerMonth);
-            //
-            // if (pricePerMonth > 0)
-            // {
-            //     users[index].sub.subPeriod = newMonths;
-            //     users[index].sub.monthsPrice = pricePerMonth;
-            //     users[index].sub.totSub = users[index].sub.monthsPrice * (float)newMonths;
-            //     users[index].sub.subState = true;
-            //     printf("User: %s %s\n", users[index].name, users[index].surname);
-            //     printf("Purchase successful!\n");
-            //     printf("Status: Active | New Total: %.2f\n", users[index].sub.totSub);
-            // }
-            // else
-            // {
-            //     printf("Invalid price. Enter a positive value.\n");
-            // }
-        }
-        else
-        {
-            printf("Invalid number of months. Enter a value between 1 and 12.\n");
         }
     }
     else
@@ -396,6 +378,7 @@ void setPrice(struct User users[], int count) // FUNCTION 6
 {
     float newPrice;
     int typeSub;
+    printf("\n--- Update monthly price ---\n");
     printf("Insert new price: ");
     scanf("%f", &newPrice);
     typeSub = read_int_in_range("Insert subscription type: ", 1, 3);
@@ -412,7 +395,7 @@ void setPrice(struct User users[], int count) // FUNCTION 6
                     updatablePool = newPrice;
                     users[i].sub.monthsPrice = newPrice;
                     users[i].sub.totSub = newPrice * users[i].sub.subPeriod;
-                    printf("Price updated.\n");
+                    printf("Price updated for Subscriber with ID: %d.\n", users[i].id);
                 }
             }
             printf("End of cycle");
@@ -425,7 +408,7 @@ void setPrice(struct User users[], int count) // FUNCTION 6
                     updatableGym = newPrice;
                     users[i].sub.monthsPrice = newPrice;
                     users[i].sub.totSub = newPrice * users[i].sub.subPeriod;
-                    printf("Price updated.\n");
+                    printf("Price updated for Subscriber with ID: %d.\n", users[i].id);
                 }
             }
             printf("End of cycle");
@@ -438,7 +421,7 @@ void setPrice(struct User users[], int count) // FUNCTION 6
                     updatableFull = newPrice;
                     users[i].sub.monthsPrice = newPrice;
                     users[i].sub.totSub = newPrice * users[i].sub.subPeriod;
-                    printf("Price updated.\n");
+                    printf("Price updated for Subscriber with ID: %d.\n", users[i].id);
                 }
             }
             printf("End of cycle");
@@ -451,7 +434,7 @@ void setPrice(struct User users[], int count) // FUNCTION 6
                     users[i].sub.monthsPrice = 0.0;
                     users[i].sub.subPeriod = 0;
                     users[i].sub.totSub = 0.0;
-                    printf("Price updated.\n");
+                    printf("Price updated for Subscriber with ID: %d.\n", users[i].id);
                 }
             }
         default:
@@ -466,11 +449,16 @@ void setPrice(struct User users[], int count) // FUNCTION 6
 
 void showTotSub(struct User users[], int count, int codes[]) // FUNCTION 7
 {
-    printf("Total subscription cost: %.2f\n", users[searchById(users, count, codes)].sub.totSub);
+    int index = searchById(users, count, codes);
+    if (index != -1)
+    {
+        printf("Total subscription cost: %.2f\n", users[index].sub.totSub);
+    }
 }
 
 float calculateTotRevenue(struct User users[], int count) // FUNCTION 8
 {
+    printf("\n--- Calculate the total revenue of the System ---\n");
     float totRevenue = 0.0;
     for (int i = 0; i < count; i++)
     {
@@ -481,6 +469,7 @@ float calculateTotRevenue(struct User users[], int count) // FUNCTION 8
 
 int countActive(struct User users[], int count) // FUNCTION 9
 {
+    printf("\n--- Count of ACTIVE Subscribers ---\n");
     int countActive = 0;
     for (int i = 0; i < count; i++)
     {
@@ -494,6 +483,7 @@ int countActive(struct User users[], int count) // FUNCTION 9
 
 void countActivePerType(struct User users[], int count) // FUNCTION 10
 {
+    printf("\n--- Count of ACTIVE Subscribers per type of subscription ---\n");
     int countPool = 0, countGym = 0, countFull = 0;
     for (int i = 0; i < count; i++)
     {
@@ -517,6 +507,7 @@ void countActivePerType(struct User users[], int count) // FUNCTION 10
 
 void printPaperone(struct User users[], int count) // FUNCTION 11
 {
+    printf("\n--- Researching the Subscriber with the highest subscription cost ---\n");
     float max = 0.0;
     int index = 0;
     for (int i = 0; i < count; i++)
@@ -542,7 +533,7 @@ void printPaperone(struct User users[], int count) // FUNCTION 11
 
 float calculateAverageAge(struct User users[], int count) // FUNCTION 12
 {
-    float avgAge;
+    printf("\n--- Calculate avarage age of Subscribers in database ---\n");
     float sum = 0.0;
 
     for (int i = 0; i < count; i++)
