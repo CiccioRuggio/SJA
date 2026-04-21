@@ -1,13 +1,14 @@
-import javax.swing.*;
+
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
+import javax.swing.*;
 
 public class SoccerGUI extends JFrame {
 
-    private static final Color FIELD_GREEN  = new Color(26, 92, 42);
-    private static final Color HEADER_BG    = new Color(10, 50, 20);
+    private static final Color FIELD_GREEN = new Color(26, 92, 42);
+    private static final Color HEADER_BG = new Color(10, 50, 20);
     private static final Color CAPTAIN_GOLD = new Color(255, 215, 0);
 
     private ArrayList<Team> teams;
@@ -15,7 +16,9 @@ public class SoccerGUI extends JFrame {
 
     public SoccerGUI(Team... initialTeams) {
         teams = new ArrayList<>();
-        for (Team t : initialTeams) teams.add(t);
+        for (Team t : initialTeams) {
+            teams.add(t);
+        }
 
         setTitle("Soccer Manager");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -26,7 +29,9 @@ public class SoccerGUI extends JFrame {
 
         tabbedPane = new JTabbedPane();
         tabbedPane.setBackground(FIELD_GREEN);
-        for (Team t : teams) tabbedPane.addTab(t.getName(), buildTeamPanel(t));
+        for (Team t : teams) {
+            tabbedPane.addTab(t.getName(), buildTeamPanel(t));
+        }
         add(tabbedPane, BorderLayout.CENTER);
 
         pack();
@@ -36,7 +41,6 @@ public class SoccerGUI extends JFrame {
     }
 
     // ---- Toolbar ----
-
     private JPanel buildToolbar() {
         JPanel toolbar = new JPanel(new FlowLayout(FlowLayout.LEFT, 10, 8));
         toolbar.setBackground(HEADER_BG);
@@ -53,7 +57,6 @@ public class SoccerGUI extends JFrame {
     }
 
     // ---- Team panel ----
-
     private JPanel buildTeamPanel(Team team) {
         JPanel panel = new JPanel(new BorderLayout());
         panel.setBackground(FIELD_GREEN);
@@ -63,7 +66,6 @@ public class SoccerGUI extends JFrame {
     }
 
     // ---- Header ----
-
     private JPanel buildHeader(Team team) {
         JPanel header = new JPanel(new BorderLayout());
         header.setBackground(HEADER_BG);
@@ -77,13 +79,12 @@ public class SoccerGUI extends JFrame {
         countLabel.setFont(new Font("SansSerif", Font.PLAIN, 13));
         countLabel.setForeground(new Color(160, 210, 160));
 
-        header.add(teamLabel,  BorderLayout.CENTER);
+        header.add(teamLabel, BorderLayout.CENTER);
         header.add(countLabel, BorderLayout.SOUTH);
         return header;
     }
 
     // ---- Players grid ----
-
     private JScrollPane buildPlayersArea(Team team) {
         int cols = 3;
         int rows = Math.max(1, (int) Math.ceil((double) team.getPlayers().length / cols));
@@ -103,14 +104,13 @@ public class SoccerGUI extends JFrame {
     }
 
     // ---- Single player card (click to edit) ----
-
     private JPanel buildPlayerCard(Player player, Team team) {
         JPanel card = new JPanel();
         card.setLayout(new BoxLayout(card, BoxLayout.Y_AXIS));
         card.setBackground(roleColor(player.getRole()));
         card.setBorder(BorderFactory.createCompoundBorder(
-            BorderFactory.createLineBorder(new Color(255, 255, 255, 80), 2),
-            BorderFactory.createEmptyBorder(15, 15, 15, 15)
+                BorderFactory.createLineBorder(new Color(255, 255, 255, 80), 2),
+                BorderFactory.createEmptyBorder(15, 15, 15, 15)
         ));
         card.setPreferredSize(new Dimension(190, 210));
         card.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -163,7 +163,6 @@ public class SoccerGUI extends JFrame {
     }
 
     // ---- Dialogs ----
-
     private void showAddTeamDialog() {
         JTextField nameField = new JTextField(20);
         JPanel form = new JPanel(new GridLayout(1, 2, 10, 0));
@@ -171,7 +170,9 @@ public class SoccerGUI extends JFrame {
         form.add(nameField);
 
         int result = JOptionPane.showConfirmDialog(this, form, "Add Team", JOptionPane.OK_CANCEL_OPTION);
-        if (result != JOptionPane.OK_OPTION) return;
+        if (result != JOptionPane.OK_OPTION) {
+            return;
+        }
 
         String name = nameField.getText().trim();
         if (name.isEmpty()) {
@@ -195,7 +196,9 @@ public class SoccerGUI extends JFrame {
         Team team = teams.get(tabIndex);
 
         PlayerFormResult result = showPlayerForm(null);
-        if (result == null) return;
+        if (result == null) {
+            return;
+        }
 
         Player newPlayer = new Player(result.name, result.surname, result.number,
                 result.role, result.captain, result.nationality.name());
@@ -203,7 +206,9 @@ public class SoccerGUI extends JFrame {
         // Expand the players array by one
         Player[] old = team.getPlayers();
         Player[] updated = new Player[old.length + 1];
-        for (int i = 0; i < old.length; i++) updated[i] = old[i];
+        for (int i = 0; i < old.length; i++) {
+            updated[i] = old[i];
+        }
         updated[old.length] = newPlayer;
         team.setPlayers(updated);
 
@@ -212,31 +217,33 @@ public class SoccerGUI extends JFrame {
 
     private void showEditPlayerDialog(Player player, Team team) {
         PlayerFormResult result = showPlayerForm(player);
-        if (result == null) return;
+        if (result == null) {
+            return;
+        }
 
         player.setName(result.name);
         player.setSurname(result.surname);
         player.setNumber(result.number);
         player.setRole(result.role);
         player.setCap(result.captain);
-        player.setNationality(result.nationality);
+        player.setNationality(result.nationality.name());
 
         refreshTeamTab(teams.indexOf(team), team);
     }
 
     private PlayerFormResult showPlayerForm(Player existing) {
-        JTextField nameField    = new JTextField(existing != null ? existing.getName() : "", 15);
+        JTextField nameField = new JTextField(existing != null ? existing.getName() : "", 15);
         JTextField surnameField = new JTextField(existing != null ? existing.getSurname() : "", 15);
-        JSpinner   numSpinner   = new JSpinner(new SpinnerNumberModel(
+        JSpinner numSpinner = new JSpinner(new SpinnerNumberModel(
                 existing != null ? existing.getNumber() : 1, 1, 99, 1));
-        JComboBox<Roles>        roleBox = new JComboBox<>(Roles.values());
-        JComboBox<Person.Nationalities> natBox = new JComboBox<>(Person.Nationalities.values());
+        JComboBox<Roles> roleBox = new JComboBox<>(Roles.values());
+        JComboBox<Nationalities> natBox = new JComboBox<>(Nationalities.values());
         natBox.setRenderer(new DefaultListCellRenderer() {
             @Override
             public Component getListCellRendererComponent(JList<?> list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
                 super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
-                if (value instanceof Person.Nationalities) {
-                    Person.Nationalities n = (Person.Nationalities) value;
+                if (value instanceof Nationalities) {
+                    Nationalities n = (Nationalities) value;
                     setIcon(emojiIcon(n.getFlag(), 16));
                     setText(n.name().replace("_", " "));
                 }
@@ -251,18 +258,26 @@ public class SoccerGUI extends JFrame {
         }
 
         JPanel form = new JPanel(new GridLayout(0, 2, 8, 8));
-        form.add(new JLabel("Name:"));       form.add(nameField);
-        form.add(new JLabel("Surname:"));    form.add(surnameField);
-        form.add(new JLabel("Shirt #:"));    form.add(numSpinner);
-        form.add(new JLabel("Role:"));       form.add(roleBox);
-        form.add(new JLabel("Nationality:")); form.add(natBox);
-        form.add(new JLabel(""));            form.add(captainBox);
+        form.add(new JLabel("Name:"));
+        form.add(nameField);
+        form.add(new JLabel("Surname:"));
+        form.add(surnameField);
+        form.add(new JLabel("Shirt #:"));
+        form.add(numSpinner);
+        form.add(new JLabel("Role:"));
+        form.add(roleBox);
+        form.add(new JLabel("Nationality:"));
+        form.add(natBox);
+        form.add(new JLabel(""));
+        form.add(captainBox);
 
         String title = existing != null ? "Edit Player" : "Add Player";
         int res = JOptionPane.showConfirmDialog(this, form, title, JOptionPane.OK_CANCEL_OPTION);
-        if (res != JOptionPane.OK_OPTION) return null;
+        if (res != JOptionPane.OK_OPTION) {
+            return null;
+        }
 
-        String name    = nameField.getText().trim();
+        String name = nameField.getText().trim();
         String surname = surnameField.getText().trim();
         if (name.isEmpty() || surname.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Name and surname cannot be empty.");
@@ -270,17 +285,16 @@ public class SoccerGUI extends JFrame {
         }
 
         PlayerFormResult out = new PlayerFormResult();
-        out.name        = name;
-        out.surname     = surname;
-        out.number      = (int) numSpinner.getValue();
-        out.role        = (Roles) roleBox.getSelectedItem();
-        out.nationality = (Person.Nationalities) natBox.getSelectedItem();
-        out.captain     = captainBox.isSelected();
+        out.name = name;
+        out.surname = surname;
+        out.number = (int) numSpinner.getValue();
+        out.role = (Roles) roleBox.getSelectedItem();
+        out.nationality = (Nationalities) natBox.getSelectedItem();
+        out.captain = captainBox.isSelected();
         return out;
     }
 
     // ---- Refresh tab after changes ----
-
     private void refreshTeamTab(int tabIndex, Team team) {
         tabbedPane.setComponentAt(tabIndex, buildTeamPanel(team));
         tabbedPane.setTitleAt(tabIndex, team.getName());
@@ -289,13 +303,13 @@ public class SoccerGUI extends JFrame {
     }
 
     // ---- Helpers ----
-
     private static class PlayerFormResult {
+
         String name, surname;
         int number;
         Roles role;
         boolean captain;
-        Person.Nationalities nationality;
+        Nationalities nationality;
     }
 
     private JLabel centeredLabel(String text, int style, int size, Color color) {
@@ -319,10 +333,18 @@ public class SoccerGUI extends JFrame {
     }
 
     private Color roleColor(Roles role) {
-        if (role == Roles.ATT) return new Color(200, 50,  50);
-        if (role == Roles.DEF) return new Color(50,  100, 200);
-        if (role == Roles.CEN) return new Color(160, 120, 20);
-        if (role == Roles.POR) return new Color(200, 120, 30);
+        if (role == Roles.ATT) {
+            return new Color(200, 50, 50);
+        }
+        if (role == Roles.DEF) {
+            return new Color(50, 100, 200);
+        }
+        if (role == Roles.CEN) {
+            return new Color(160, 120, 20);
+        }
+        if (role == Roles.POR) {
+            return new Color(200, 120, 30);
+        }
         return new Color(80, 80, 80);
     }
 }

@@ -7,40 +7,31 @@ public class Player extends Person {
 
     // Empty constructor — sets default values
     public Player() {
-        setName("Unknown");
-        setSurname("Unknown");
+        super.setName("Unknown");
+        super.setSurname("Unknown");
         this.shirtNumber = 0;
         this.role = Roles.UNKNOWN;
         this.captain = false;
-        setNationality(Person.Nationalities.UNKNOWN);
+        super.setNationality("UNKNOWN");
     }
 
     // Parameterized constructor
     public Player(String name, String surname, int shirtNumber, Roles role, boolean captain, String nationality) {
-        setName(name);
-        setSurname(surname);
+        super(name, surname, nationality);
         this.shirtNumber = shirtNumber;
         this.role = role;
         this.captain = captain;
-        if (nationality == null || nationality.equals("")) {
-            setNationality(Person.Nationalities.UNKNOWN);
-        } else {
-            try {
-                setNationality(Person.Nationalities.valueOf(nationality.toUpperCase()));
-            } catch (IllegalArgumentException e) {
-                setNationality(Person.Nationalities.UNKNOWN);
-            }
-        }
     }
 
+    @Override
     public String toString() {
-        return "\nName: " + getName() + "\nSurname: " + getSurname() + "\nRole: " + this.role + "\nShirt number: " + this.shirtNumber + "\nCaptain: " + this.captain + "\nNationality: " + getNationality().getFlag();
+        return super.toString() + "\nRole: " + this.role + "\nShirt number: " + this.shirtNumber + "\nCaptain: " + this.captain;
     }
 
     public String getAbbreviation() {
         char nameChar, surnameChar;
-        nameChar = getName().charAt(0);
-        surnameChar = getSurname().charAt(0);
+        nameChar = super.getName().toUpperCase().charAt(0);
+        surnameChar = super.getSurname().toUpperCase().charAt(0);
         return "" + nameChar + surnameChar + this.shirtNumber;
     }
 
@@ -73,11 +64,11 @@ public class Player extends Person {
     }
 
     public String getFullInfo() {
-        String flag = (getNationality() != null) ? getNationality().getFlag() : "❓";
+        String flag = (super.getNationality() != null) ? super.getNationality().getFlag() : "❓";
         return "\n - " + flag
                 + " " + this.shirtNumber
-                + " " + getSurname()
-                + " " + getName().substring(0, 1)
+                + " " + super.getSurname()
+                + " " + super.getName().substring(0, 1)
                 + " " + (this.captain ? "©" : "");
     }
 }
