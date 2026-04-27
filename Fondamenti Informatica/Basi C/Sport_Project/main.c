@@ -13,26 +13,26 @@ float updatablePool = POOL_PRICE;
 float updatableGym = GYM_PRICE;
 float updatableFull = FULL_PRICE;
 
-struct Subscription
+typedef struct 
 {
     int typeSub;
     int subPeriod;
     float monthsPrice;
     float totSub;
     bool subState;
-};
+}Subscription;
 
-struct User
+typedef struct
 {
     int id;
     char name[30];
     char surname[30];
     int age;
-    struct Subscription sub;
-};
+    Subscription sub;
+}User;
 
 // Here we create some hard-coded users to have something to see and work on at the start of the program
-struct User user1 = {
+User user1 = {
     .id = 1,
     .name = "Lorenzo",
     .surname = "Alfè",
@@ -44,7 +44,7 @@ struct User user1 = {
         .totSub = 4 * POOL_PRICE,
         .subState = true}};
 
-struct User user2 = {
+User user2 = {
     .id = 2,
     .name = "Francesco",
     .surname = "Ruggeri",
@@ -56,7 +56,7 @@ struct User user2 = {
         .totSub = 13 * GYM_PRICE,
         .subState = true}};
 
-struct User user3 = {
+User user3 = {
     .id = 3,
     .name = "Gianmarco",
     .surname = "Cagliari",
@@ -68,7 +68,7 @@ struct User user3 = {
         .totSub = 24 * FULL_PRICE,
         .subState = true}};
 
-struct User user4 = {
+User user4 = {
     .id = 4,
     .name = "Stefano",
     .surname = "Fortezza",
@@ -80,7 +80,7 @@ struct User user4 = {
         .totSub = 3 * FULL_PRICE,
         .subState = true}};
 
-struct User user5 = {
+User user5 = {
     .id = 5,
     .name = "Andrea",
     .surname = "Calanna",
@@ -92,7 +92,7 @@ struct User user5 = {
         .totSub = 16 * POOL_PRICE,
         .subState = true}};
 
-struct User user6 = {
+User user6 = {
     .id = 6,
     .name = "Fabio",
     .surname = "Lanzafame",
@@ -137,7 +137,7 @@ void printTypeSub(int type)
     }
 }
 
-void printSingleUser(struct User user)
+void printSingleUser(User user)
 {
     printf("Id: %d\n", user.id);
     printf("Name: %s\n", user.name);
@@ -149,9 +149,9 @@ void printSingleUser(struct User user)
            user.sub.subPeriod);
 }
 
-void insertUser(struct User users[], int count, int codes[]) // FUNCTION 1
+void insertUser(User users[], int count, int codes[]) // FUNCTION 1
 {
-    struct User user;
+    User user;
     // ID is generated from the system, user will not put it by himself
     codes[count] = count + 1;
     user.id = count + 1;
@@ -219,7 +219,7 @@ void insertUser(struct User users[], int count, int codes[]) // FUNCTION 1
     users[count] = user;
 }
 
-void printAllUsers(struct User users[], int count) // FUNCTION 2
+void printAllUsers(User users[], int count) // FUNCTION 2
 {
     printf("\n--- Show all Subscribers in database ---\n");
     if (count == 0)
@@ -238,7 +238,7 @@ void printAllUsers(struct User users[], int count) // FUNCTION 2
     }
 }
 
-int searchById(struct User users[], int count, int codes[]) // FUNCTION 3
+int searchById(User users[], int count, int codes[]) // FUNCTION 3
 {
     int searchedCode;
     int index;
@@ -260,7 +260,7 @@ int searchById(struct User users[], int count, int codes[]) // FUNCTION 3
     return index;
 }
 
-void updateSubStatus(struct User users[], int codes[], int count) // FUNCTION 4
+void updateSubStatus(User users[], int codes[], int count) // FUNCTION 4
 {
     int searchedCode, index, choice;
     printf("--- Update Subscription Status ---\n");
@@ -313,7 +313,7 @@ void updateSubStatus(struct User users[], int codes[], int count) // FUNCTION 4
     }
 }
 
-void updatePurchasedMonths(struct User users[], int codes[], int count) // FUNCTION 5
+void updatePurchasedMonths(User users[], int codes[], int count) // FUNCTION 5
 {
     int searchedCode, index, newMonths;
 
@@ -374,7 +374,7 @@ void updatePurchasedMonths(struct User users[], int codes[], int count) // FUNCT
     }
 }
 
-void setPrice(struct User users[], int count) // FUNCTION 6
+void setPrice(User users[], int count) // FUNCTION 6
 {
     float newPrice;
     int typeSub;
@@ -447,7 +447,7 @@ void setPrice(struct User users[], int count) // FUNCTION 6
     }
 }
 
-void showTotSub(struct User users[], int count, int codes[]) // FUNCTION 7
+void showTotSub(User users[], int count, int codes[]) // FUNCTION 7
 {
     int index = searchById(users, count, codes);
     if (index != -1)
@@ -456,7 +456,7 @@ void showTotSub(struct User users[], int count, int codes[]) // FUNCTION 7
     }
 }
 
-float calculateTotRevenue(struct User users[], int count) // FUNCTION 8
+float calculateTotRevenue(User users[], int count) // FUNCTION 8
 {
     printf("\n--- Calculate the total revenue of the System ---\n");
     float totRevenue = 0.0;
@@ -467,7 +467,7 @@ float calculateTotRevenue(struct User users[], int count) // FUNCTION 8
     return totRevenue;
 }
 
-int countActive(struct User users[], int count) // FUNCTION 9
+int countActive(User users[], int count) // FUNCTION 9
 {
     printf("\n--- Count of ACTIVE Subscribers ---\n");
     int countActive = 0;
@@ -481,7 +481,7 @@ int countActive(struct User users[], int count) // FUNCTION 9
     return countActive;
 }
 
-void countActivePerType(struct User users[], int count) // FUNCTION 10
+void countActivePerType(User users[], int count) // FUNCTION 10
 {
     printf("\n--- Count of ACTIVE Subscribers per type of subscription ---\n");
     int countPool = 0, countGym = 0, countFull = 0;
@@ -505,7 +505,7 @@ void countActivePerType(struct User users[], int count) // FUNCTION 10
     printf("Total of full subs: %d\n", countFull);
 }
 
-void printPaperone(struct User users[], int count) // FUNCTION 11
+void printPaperone(User users[], int count) // FUNCTION 11
 {
     printf("\n--- Researching the Subscriber with the highest subscription cost ---\n");
     float max = 0.0;
@@ -531,7 +531,7 @@ void printPaperone(struct User users[], int count) // FUNCTION 11
     printf("\nTotal payed: %.2f", users[index].sub.totSub);
 }
 
-float calculateAverageAge(struct User users[], int count) // FUNCTION 12
+float calculateAverageAge(User users[], int count) // FUNCTION 12
 {
     printf("\n--- Calculate avarage age of Subscribers in database ---\n");
     float sum = 0.0;
@@ -548,18 +548,18 @@ int printMenu()
 {
     int choice;
     printf("\n--- SPORTS CENTER MANAGEMENT ---\n");
-    printf("1. Insert new subscriber\n");                    // FATTO
-    printf("2. Show all subscribers\n");                     // FATTO
-    printf("3. Search subscriber by ID\n");                  // FATTO
-    printf("4. Update subscription status\n");               // FATTO
-    printf("5. Update purchased months\n");                  // FATTO
-    printf("6. Update monthly cost\n");                      // FATTO
-    printf("7. Calculate total cost of one subscription\n"); // FATTO
-    printf("8. Calculate total theoretical revenue\n");
-    printf("9. Count active subscribers\n");
-    printf("10. Count subscribers by subscription type\n");
-    printf("11. Find subscriber with highest total cost\n");
-    printf("12. Calculate average age\n");
+    printf("1. Insert new subscriber\n");                       // FATTO
+    printf("2. Show all subscribers\n");                        // FATTO
+    printf("3. Search subscriber by ID\n");                     // FATTO
+    printf("4. Update subscription status\n");                  // FATTO
+    printf("5. Update purchased months\n");                     // FATTO
+    printf("6. Update monthly cost\n");                         // FATTO
+    printf("7. Calculate total cost of one subscription\n");    // FATTO
+    printf("8. Calculate total theoretical revenue\n");         // FATTO
+    printf("9. Count active subscribers\n");                    // FATTO
+    printf("10. Count subscribers by subscription type\n");     // FATTO
+    printf("11. Find subscriber with highest total cost\n");    // FATTO
+    printf("12. Calculate average age\n");                      // FATTO
     printf("0. Exit\n");
 
     choice = read_int_in_range("Choice: ", 0, 12);
@@ -569,7 +569,7 @@ int printMenu()
 void runMain()
 {
     int codes[MAX_SUBSCRIBER];
-    struct User users[MAX_SUBSCRIBER];
+    User users[MAX_SUBSCRIBER];
     int choice;
 
     users[0] = user1;
