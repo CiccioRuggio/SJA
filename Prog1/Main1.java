@@ -1,4 +1,4 @@
-package Prog_1;
+package Prog1;
 
 public class Main1 {
     public static void main(String[] args) {
