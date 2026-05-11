@@ -1,0 +1,2 @@
+Creare un aereoporto che gestisca un insieme di voli, ogni volo è caratterizzato da Partenza/Arrivo , data di partenza, data di arrivo e aereo.
+Come aereo abbiamo una classe astratta o interfaccia, ed due classi collegate tramite estensione/implmentazione, ovvero cargo o aereo di linea. Crea infine una interfaccia UI per gestire le classi di modello.
