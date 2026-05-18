@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pokedex</title>
+    <style>
+        .star-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.4em;
+            padding: 0;
+            line-height: 1;
+        }
+        .star-btn:hover { opacity: 0.7; }
+    </style>
+</head>
+<body>
+    <h1><a href="{{ url_for('index') }}" style="text-decoration:none; color:inherit;">Pokedex</a></h1>
+
+    <a href="{{ url_for('add') }}">+ Add Pokemon</a>
+
+    <hr>
+
+    <!-- ── FILTRI ────────────────────────────────────────────────────────── -->
+    <form method="GET" action="/">
+
+        <!-- Barra di ricerca + ordinamento + preferiti -->
+        <div>
+            <input type="text" name="q" value="{{ q }}" placeholder="Search by name or Pokedex ID">
+
+            <select name="sort">
+                <option value="id"     {% if sort == 'id'     %}selected{% endif %}>Pokedex order</option>
+                <option value="id_key" {% if sort == 'id_key' %}selected{% endif %}>Insertion order</option>
+                <option value="name"   {% if sort == 'name'   %}selected{% endif %}>Alphabetical</option>
+            </select>
+
+            <label style="margin-left:12px;">
+                <input type="checkbox" name="favorites" {% if favorites %}checked{% endif %}>
+                ★ Favorites only
+            </label>
+        </div>
+
+        <br>
+
+        <!-- Filtro per tipo -->
+        <div>
+            <strong>Filter by type:</strong><br>
+            {% for ptype in all_types %}
+                <label style="margin-right:8px;">
+                    <input type="checkbox" name="types" value="{{ ptype }}"
+                           {% if ptype in selected_types %}checked{% endif %}>
+                    {{ ptype }}
+                </label>
+            {% endfor %}
+        </div>
+
+        <br>
+
+        <!-- Exact match checkbox -->
+        <label>
+            <input type="checkbox" name="exact" {% if exact %}checked{% endif %}>
+            Exact match (only pokemon with EXACTLY the selected types)
+        </label>
+
+        <br><br>
+
+        <button type="submit">Search</button>
+        <a href="/">Reset</a>
+
+    </form>
+
+    <hr>
+
+    <!-- ── RISULTATI ─────────────────────────────────────────────────────── -->
+    <p>{{ creatures | length }} result(s)</p>
+
+    {% for creature in creatures %}
+        <div style="border:1px solid #ccc; padding:10px; margin:10px 0; width:300px;">
+
+            <!-- Stella preferiti: form POST separato, torna sulla stessa pagina filtrata -->
+            <form action="{{ url_for('toggle_favorite', id_key=creature.id_key) }}" method="POST" style="display:inline;">
+                <button class="star-btn" type="submit" title="Toggle favorite">
+                    {% if creature.is_favorite %}★{% else %}☆{% endif %}
+                </button>
+            </form>
+
+            {% if creature.sprite %}
+                <img src="{{ creature.sprite }}" alt="{{ creature.name }}">
+            {% endif %}
+            <h2>#{{ creature.id }} {{ creature.name | capitalize }}</h2>
+            <p>Height: {{ creature.height }} | Weight: {{ creature.weight }}</p>
+            <p>Types: {{ creature.get_types() | join(', ') }}</p>
+            <p>
+                {% for stat_name, stat_val in creature.get_stats().items() %}
+                    {{ stat_name }}: {{ stat_val }}<br>
+                {% endfor %}
+            </p>
+            <a href="{{ url_for('edit', id_key=creature.id_key) }}">Edit</a>
+
+        </div>
+    {% else %}
+        <p>No Pokemon found.</p>
+    {% endfor %}
+
+</body>
+</html>

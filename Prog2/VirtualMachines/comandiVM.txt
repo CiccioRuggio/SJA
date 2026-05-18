@@ -7,4 +7,4 @@ pip lists ---------- da la lista dei pacchetti installati
 
 pip freeze ><nomeFile.txt> ---------- scriverà su un file nomeFile.txt le versioni dei pacchetti installati
 
-pip install -r requirementx.txt --------- installa i pacchetti elencati in un file txt (requirementx.txt)
+pip install -r requirements.txt --------- installa i pacchetti elencati in un file txt (requirementx.txt)
