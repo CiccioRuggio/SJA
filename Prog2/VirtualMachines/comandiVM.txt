@@ -1,0 +1,10 @@
+CREA VM ---------- python3 -m venv <nomeVM (default standardizzato ".venv")>
+AVVIA ---------- source <env_name>/bin/activate
+DISATTIVA ---------- deactivate
+
+pip3 install requests (un pacchetto)
+pip lists ---------- da la lista dei pacchetti installati
+
+pip freeze ><nomeFile.txt> ---------- scriverà su un file nomeFile.txt le versioni dei pacchetti installati
+
+pip install -r requirementx.txt --------- installa i pacchetti elencati in un file txt (requirementx.txt)
