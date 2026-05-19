@@ -1,7 +1,7 @@
 import subprocess, requests, os, json
 subprocess.run("clear", shell=True)
 
-LOCAL_PATH = "data/"
+DATA_PATH = "data/"
 
 class Creature:
     id = 0
@@ -60,8 +60,8 @@ class PokemonReader:
 class JSONWriter:
     def writeJSONPkm(self,response):
         try:
-            os.makedirs(os.path.dirname(f"{LOCAL_PATH}creatures/{response['name']}.json"), exist_ok=True)
-            with open(f"{LOCAL_PATH}creatures/{response['name']}.json", "w") as f:
+            os.makedirs(os.path.dirname(f"{DATA_PATH}creatures/{response['name']}.json"), exist_ok=True)
+            with open(f"{DATA_PATH}creatures/{response['name']}.json", "w") as f:
                 json.dump(response, f)
             self.writeJSONPkdx()
         except Exception as e:
@@ -70,8 +70,8 @@ class JSONWriter:
     def writeJSONPkdx(self):
         pokeList = []
         try:
-            for el in os.listdir(f"{LOCAL_PATH}creatures/"):
-                with open(f'{LOCAL_PATH}creatures/{el}', 'r') as f:
+            for el in os.listdir(f"{DATA_PATH}creatures/"):
+                with open(f'{DATA_PATH}creatures/{el}', 'r') as f:
                     dictio = {}
                     a=json.load(f)
                     
@@ -82,7 +82,7 @@ class JSONWriter:
                     # print(json.load(f))
                     # print('========================')
                 pokeList.append(dictio)
-            with open(f'{LOCAL_PATH}pokedex.json', 'w') as f:
+            with open(f'{DATA_PATH}pokedex.json', 'w') as f:
                 json.dump(pokeList, f)
         except Exception as e:
             print(f"ERROR! {e}")
@@ -91,14 +91,14 @@ class JSONWriter:
 class JSONReader:
     def readJSONPkm(self,poke):
         try:
-            with open(f"{LOCAL_PATH}creatures/{poke['name']}.json",'r')as f:
+            with open(f"{DATA_PATH}creatures/{poke['name']}.json",'r')as f:
                 return json.load(f)
         except:
             return f"ERROR! {poke} NOT found!"
         
     def readJSONPkdx(self):
         try:
-            with open(f"{LOCAL_PATH}pokedex.json",'r')as f:
+            with open(f"{DATA_PATH}pokedex.json",'r')as f:
                 return json.load(f)
         except Exception as e:
             return f"ERROR!  {e}"
@@ -143,8 +143,8 @@ Select your action:
             case '3':
                 idOrName = input('Insert number of Pokedex or Name:\n').lower().strip()
                 found = False
-                for el in os.listdir(f"{LOCAL_PATH}creatures/"):
-                    with open(f'{LOCAL_PATH}creatures/{el}', 'r') as f:
+                for el in os.listdir(f"{DATA_PATH}creatures/"):
+                    with open(f'{DATA_PATH}creatures/{el}', 'r') as f:
                         a = json.load(f)
                     if str(a['id']) == idOrName or a['name'] == idOrName:
                         found = True

@@ -27,15 +27,15 @@ migrate = Migrate(app, db)
 
 class Creature(db.Model):
     __tablename__ = 'creatures'
-    id_key = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    id_key = db.Column(db.Integer, primary_key=True, autoincrement=True)    # la key personale del db, utilizzata autoincrementale per gestire l'ordine di creazione dei record e per rendere totalmente univoco e separato ogni singolo record, a prescindere dall'id di partenza
     id     = db.Column(db.Integer, nullable=False)
     name   = db.Column(db.String(80), nullable=False, unique=True)
     height = db.Column(db.Integer, nullable=False)
     weight = db.Column(db.Integer, nullable=False)
-    types  = db.Column(db.Text, nullable=False)   # es. '["fire", "flying"]'
-    stats  = db.Column(db.Text, nullable=False)   # es. '{"hp": 45, "attack": 49}'
-    sprite      = db.Column(db.Text, nullable=True)            # URL gif animata (Gen V) o png statico
-    is_favorite = db.Column(db.Boolean, nullable=False, default=False)  # stella preferiti
+    types  = db.Column(db.Text, nullable=False)                             # es. '["fire", "flying"]'
+    stats  = db.Column(db.Text, nullable=False)                             # es. '{"hp": 45, "attack": 49}'
+    sprite      = db.Column(db.Text, nullable=True)                         # URL gif animata (Gen V) o png statico
+    is_favorite = db.Column(db.Boolean, nullable=False, default=False)      # stella preferiti
 
     # Accetta **dict sia dai dati API (types come lista) che dal DB (types come stringa JSON)
     def __init__(self, **kwargs):
