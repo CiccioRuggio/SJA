@@ -13,8 +13,17 @@ data in input una stringa, calcoli:
 -quanti caratteri che non sono ne' lettere, ne' numeri , ne' spazi
 '''
 
-vocals = "aeiou"
+vocals = ['a','e','i','o','u']
+specials = []
 text = input("Enter your text:\n")
-words = 0
+# words = 0
 vocal_count = 0
 consonant_count = 0
+
+words = len(text.split())
+
+for letter in text:
+    if letter in vocals:
+        vocal_count += 1
+
+print(f"There are {words} words, {vocal_count} vocals")
