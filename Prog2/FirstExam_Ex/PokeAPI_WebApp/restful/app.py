@@ -104,6 +104,7 @@ class PokemonReader:
 def index():
     q              = request.args.get('q', '').strip()
     sort           = request.args.get('sort', 'id')
+    reverse        = request.args.get('reverse') == 'on'
     selected_types = request.args.getlist('types')
     exact          = request.args.get('exact')     == 'on'
     favorites      = request.args.get('favorites') == 'on'
@@ -123,13 +124,14 @@ def index():
         else:
             query = query.filter(Creature.name.ilike(f'%{q}%'))
 
-    # Ordinamento
+    # Ordinamento (con supporto ordine inverso)
     if sort == 'id_key':
-        query = query.order_by(Creature.id_key)
+        col = Creature.id_key
     elif sort == 'name':
-        query = query.order_by(Creature.name)
+        col = Creature.name
     else:
-        query = query.order_by(Creature.id)
+        col = Creature.id
+    query = query.order_by(col.desc() if reverse else col)
 
     creatures = query.all()
 
@@ -147,6 +149,7 @@ def index():
                            creatures=creatures,
                            q=q,
                            sort=sort,
+                           reverse=reverse,
                            selected_types=selected_types,
                            exact=exact,
                            favorites=favorites,

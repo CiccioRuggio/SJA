@@ -13,6 +13,22 @@
             line-height: 1;
         }
         .star-btn:hover { opacity: 0.7; }
+
+        .reverse-btn {
+            background: none;
+            border: 1px solid #aaa;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1em;
+            padding: 2px 6px;
+            line-height: 1;
+            vertical-align: middle;
+        }
+        .reverse-btn:hover { background: #eee; }
+        .reverse-btn .arrow-up   { color: #111; }
+        .reverse-btn .arrow-down { color: #ccc; }
+        .reverse-btn.reversed .arrow-up   { color: #ccc; }
+        .reverse-btn.reversed .arrow-down { color: #111; }
     </style>
 </head>
 <body>
@@ -29,14 +45,19 @@
         <div>
             <input type="text" name="q" value="{{ q }}" placeholder="Search by name or Pokedex ID">
 
-            <select name="sort">
+            <select name="sort" onchange="this.form.submit()">
                 <option value="id"     {% if sort == 'id'     %}selected{% endif %}>Pokedex order</option>
                 <option value="id_key" {% if sort == 'id_key' %}selected{% endif %}>Insertion order</option>
                 <option value="name"   {% if sort == 'name'   %}selected{% endif %}>Alphabetical</option>
             </select>
 
+            <input type="hidden" name="reverse" id="reverse-field" value="{{ 'on' if reverse else 'off' }}">
+            <button type="button" class="reverse-btn {% if reverse %}reversed{% endif %}" onclick="toggleReverse()" title="Reverse order">
+                <span class="arrow-up">↑</span><span class="arrow-down">↓</span>
+            </button>
+
             <label style="margin-left:12px;">
-                <input type="checkbox" name="favorites" {% if favorites %}checked{% endif %}>
+                <input type="checkbox" name="favorites" {% if favorites %}checked{% endif %} onchange="this.form.submit()">
                 ★ Favorites only
             </label>
         </div>
@@ -103,5 +124,12 @@
         <p>No Pokemon found.</p>
     {% endfor %}
 
+    <script>
+        function toggleReverse() {
+            const field = document.getElementById('reverse-field');
+            field.value = field.value === 'on' ? 'off' : 'on';
+            field.closest('form').submit();
+        }
+    </script>
 </body>
 </html>
