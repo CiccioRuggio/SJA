@@ -1,6 +1,6 @@
 # **README**
 
-This repository contains all the files and projects developed during the **Web Developer A.I.** course at **Steve Jobs Academy (Catania)**, **Class 41**.
+This repository contains all the files and projects developed during the **Web Developer A.I.** course at **Steve Jobs Academy (Catania)**, **Class 41**, from later 2025 up to nowadays.
 
 Each folder and file represents exercises, examples, or complete projects created throughout the course, covering both theoretical concepts and practical applications in web development.
 
