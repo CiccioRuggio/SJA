@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form mutuo</title>
+</head>
+<body>
+    <h1><a href="{{ url_for('index') }}" style="text-decoration:none; color:inherit;">GO TO INDEX</a></h1>
+    <h2>Fill the form to predict</h2>
+    <br>
+    <form action="{{ url_for('predict') }}" method="POST" style="display:inline;">
+        <label for="Gender">Gender</label><br>
+        <select id="Gender" name="Gender">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select>
+        <br><br>
+        <label for="Married">Married</label><br>
+        <select id="Married" name="Married">
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select>
+        <br><br>
+        <label for="Dependents">Dependents</label><br>
+        <input type="number" id="Dependents" name="Dependents" min="0" required><br>
+        <br>
+        <label for="Education">Education</label><br>
+        <select id="Education" name="Education">
+            <option value="Graduate">Graduate</option>
+            <option value="Not Graduate">Not Graduate</option>
+        </select>
+        <br><br>
+        <label for="Self_Employed">Self_Employed</label><br>
+        <select id="Self_Employed" name="Self_Employed">
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select>
+        <br><br>
+        <label for="ApplicantIncome">ApplicantIncome</label><br>
+        <input type="number" id="ApplicantIncome" name="ApplicantIncome" min="0" required><br>
+        <br>
+        <label for="CoapplicantIncome">CoapplicantIncome</label><br>
+        <input type="number" id="CoapplicantIncome" name="CoapplicantIncome" min="0" required><br>
+        <br>
+        <label for="LoanAmount">LoanAmount</label><br>
+        <input type="number" id="LoanAmount" name="LoanAmount" min="0" required><br>
+        <br>
+        <label for="Loan_Amount_Term">Loan_Amount_Term</label><br>
+        <input type="number" id="Loan_Amount_Term" name="Loan_Amount_Term" min="0" required><br>
+        <br>
+        <label for="Credit_History">Credit_History</label><br>
+        <select id="Credit_History" name="Credit_History">
+            <option value="1">Good (1)</option>
+            <option value="0">Bad (0)</option>
+        </select>
+        <br><br>
+        <label for="Property_Area">Property_Area</label><br>
+        <select id="Property_Area" name="Property_Area">
+            <option value="Rural">Rural</option>
+            <option value="Semiurban">Semiurban</option>
+            <option value="Urban">Urban</option>
+        </select>
+        <br><br>
+        <button type="submit">submit</button>
+    </form>
+</body>
+</html>
