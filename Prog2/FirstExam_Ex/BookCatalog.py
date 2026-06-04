@@ -21,6 +21,9 @@ class Book:
             self.__price = price
     def getPrice(self):
         return self.__price
+    
+    def __str__(self):
+        return f"{self.title} by {self.author}, published by {self.publisher}\nPrice: {self.getPrice()}€"
 
 class Catalog:
     __totValue = 0
@@ -68,6 +71,12 @@ class Catalog:
         else:
             raise Exception(f"Book: {bookToRemove} is NOT a valid Book to remove")
         
+    def __str__(self):
+        books = ''
+        for book in self.bookList:
+            books = books + str(book) + '\n=============================\n'
+        return f"{self.name}\n{self.descr}\n\nBooks:\n{books}\nTotal Value: {self.getTotValue():.2f}€"
+        
 b1 = Book("Pinocchio", "Mio Padre", "Mia Nonna", 12)
 b2 = Book("Harry Potter", "J.K. Rowling", "Disney", 9)
 b3 = Book("Il barone rampante", "Italo Calvino", "Casa Ponziat", 3)
@@ -78,8 +87,8 @@ cat1 = Catalog("Catalogo 1", "Questo è il primissimo catalogo, occhio", bList1)
 cat2 = Catalog("Catalogo 2", "Questo è il secondissimo catalogo, piede", bList1)
 cat3 = cat1 + cat2
 
-
-print(f"{cat3.name} - {cat3.bookList}. \nPrezzo totale: {cat3.getTotValue()} Euro")
+print(cat3)
+# print(f"{cat3.name} - {cat3.bookList}. \nPrezzo totale: {cat3.getTotValue()} Euro")
 # print(f"{cat1.name} - {cat1.bookList}. \nPrezzo totale: {cat1.getTotValue()} Euro")
 # print(f"{cat2.name} - {cat2.bookList}. \nPrezzo totale: {cat2.getTotValue()} Euro")
 
