@@ -1,0 +1,19 @@
+{"tickets": [
+  {
+    "price": 1,
+    "start": 1780654912346,
+    "plate": "GIANNI1",
+    "end": 1780654931694,
+    "position": 1,
+    "type": "CAR",
+    "status": "CLOSED"
+  },
+  {
+    "price": 1,
+    "start": 1780654918945,
+    "plate": "GIANNI2",
+    "position": 2,
+    "type": "CAR",
+    "status": "OPEN"
+  }
+]}

@@ -3,9 +3,11 @@ import java.util.ArrayList;
 public class Airport {
     private ArrayList<Flight> flights = new ArrayList<>();
 
-    public Airport() {}
+    public Airport() {
+        
+    }
 
-    public ArrayList<Flight> getFlights()     { return flights; }
+    public ArrayList<Flight> getFlights()     { return this.flights; }
 
     public void addFlight(Flight f)           { flights.add(f); }
 
