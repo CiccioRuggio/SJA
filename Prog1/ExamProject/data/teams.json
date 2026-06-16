@@ -1,0 +1,302 @@
+{"teams": [
+  {
+    "players": [
+      {
+        "number": 1,
+        "role": "POR",
+        "nationality": "ITALY",
+        "surname": "Buffon",
+        "name": "Gianluigi",
+        "captain": true,
+        "starting": true
+      },
+      {
+        "number": 99,
+        "role": "POR",
+        "nationality": "ITALY",
+        "surname": "Donnarumma",
+        "name": "Gianluigi",
+        "captain": true,
+        "starting": false
+      },
+      {
+        "number": 3,
+        "role": "DEF",
+        "nationality": "ITALY",
+        "surname": "Maldini",
+        "name": "Paolo",
+        "captain": false,
+        "starting": true
+      },
+      {
+        "number": 4,
+        "role": "DEF",
+        "nationality": "ITALY",
+        "surname": "Nesta",
+        "name": "Alessandro",
+        "captain": false,
+        "starting": true
+      },
+      {
+        "number": 5,
+        "role": "DEF",
+        "nationality": "ITALY",
+        "surname": "Cannavaro",
+        "name": "Fabio",
+        "captain": false,
+        "starting": true
+      },
+      {
+        "number": 15,
+        "role": "DEF",
+        "nationality": "ITALY",
+        "surname": "Chiellini",
+        "name": "Giorgio",
+        "captain": false,
+        "starting": true
+      },
+      {
+        "number": 2,
+        "role": "DEF",
+        "nationality": "ITALY",
+        "surname": "Facchetti",
+        "name": "Giacinto",
+        "captain": false,
+        "starting": false
+      },
+      {
+        "number": 21,
+        "role": "CEN",
+        "nationality": "ITALY",
+        "surname": "Pirlo",
+        "name": "Andrea",
+        "captain": false,
+        "starting": true
+      },
+      {
+        "number": 8,
+        "role": "CEN",
+        "nationality": "ITALY",
+        "surname": "Gattuso",
+        "name": "Gennaro",
+        "captain": false,
+        "starting": true
+      },
+      {
+        "number": 6,
+        "role": "CEN",
+        "nationality": "ITALY",
+        "surname": "Verratti",
+        "name": "Marco",
+        "captain": false,
+        "starting": true
+      },
+      {
+        "number": 16,
+        "role": "CEN",
+        "nationality": "ITALY",
+        "surname": "De Rossi",
+        "name": "Daniele",
+        "captain": false,
+        "starting": true
+      },
+      {
+        "number": 18,
+        "role": "CEN",
+        "nationality": "ITALY",
+        "surname": "Barella",
+        "name": "Niccolò",
+        "captain": false,
+        "starting": false
+      },
+      {
+        "number": 10,
+        "role": "ATT",
+        "nationality": "ITALY",
+        "surname": "Baggio",
+        "name": "Roberto",
+        "captain": false,
+        "starting": true
+      },
+      {
+        "number": 7,
+        "role": "ATT",
+        "nationality": "ITALY",
+        "surname": "Del Piero",
+        "name": "Alessandro",
+        "captain": false,
+        "starting": true
+      },
+      {
+        "number": 9,
+        "role": "ATT",
+        "nationality": "ITALY",
+        "surname": "Totti",
+        "name": "Francesco",
+        "captain": false,
+        "starting": false
+      },
+      {
+        "number": 14,
+        "role": "ATT",
+        "nationality": "ITALY",
+        "surname": "Vieri",
+        "name": "Christian",
+        "captain": false,
+        "starting": false
+      }
+    ],
+    "name": "Italy Legends",
+    "formation": "4-4-2"
+  },
+  {
+    "players": [
+      {
+        "number": 1,
+        "role": "POR",
+        "nationality": "FRANCE",
+        "surname": "Lloris",
+        "name": "Hugo",
+        "captain": true,
+        "starting": true
+      },
+      {
+        "number": 16,
+        "role": "POR",
+        "nationality": "FRANCE",
+        "surname": "Barthez",
+        "name": "Fabien",
+        "captain": false,
+        "starting": false
+      },
+      {
+        "number": 15,
+        "role": "DEF",
+        "nationality": "FRANCE",
+        "surname": "Thuram",
+        "name": "Lilian",
+        "captain": false,
+        "starting": true
+      },
+      {
+        "number": 6,
+        "role": "DEF",
+        "nationality": "FRANCE",
+        "surname": "Desailly",
+        "name": "Marcel",
+        "captain": false,
+        "starting": true
+      },
+      {
+        "number": 5,
+        "role": "DEF",
+        "nationality": "FRANCE",
+        "surname": "Blanc",
+        "name": "Laurent",
+        "captain": false,
+        "starting": true
+      },
+      {
+        "number": 3,
+        "role": "DEF",
+        "nationality": "FRANCE",
+        "surname": "Lizarazu",
+        "name": "Bixente",
+        "captain": false,
+        "starting": true
+      },
+      {
+        "number": 21,
+        "role": "DEF",
+        "nationality": "FRANCE",
+        "surname": "Evra",
+        "name": "Patrice",
+        "captain": false,
+        "starting": false
+      },
+      {
+        "number": 10,
+        "role": "CEN",
+        "nationality": "FRANCE",
+        "surname": "Zidane",
+        "name": "Zinedine",
+        "captain": false,
+        "starting": true
+      },
+      {
+        "number": 4,
+        "role": "CEN",
+        "nationality": "FRANCE",
+        "surname": "Deschamps",
+        "name": "Didier",
+        "captain": false,
+        "starting": true
+      },
+      {
+        "number": 19,
+        "role": "CEN",
+        "nationality": "FRANCE",
+        "surname": "Pogba",
+        "name": "Paul",
+        "captain": false,
+        "starting": true
+      },
+      {
+        "number": 13,
+        "role": "CEN",
+        "nationality": "FRANCE",
+        "surname": "Kanté",
+        "name": "N'Golo",
+        "captain": false,
+        "starting": false
+      },
+      {
+        "number": 7,
+        "role": "ATT",
+        "nationality": "FRANCE",
+        "surname": "Mbappé",
+        "name": "Kylian",
+        "captain": false,
+        "starting": true
+      },
+      {
+        "number": 12,
+        "role": "ATT",
+        "nationality": "FRANCE",
+        "surname": "Henry",
+        "name": "Thierry",
+        "captain": false,
+        "starting": true
+      },
+      {
+        "number": 9,
+        "role": "ATT",
+        "nationality": "FRANCE",
+        "surname": "Giroud",
+        "name": "Olivier",
+        "captain": false,
+        "starting": true
+      },
+      {
+        "number": 20,
+        "role": "ATT",
+        "nationality": "FRANCE",
+        "surname": "Griezmann",
+        "name": "Antoine",
+        "captain": false,
+        "starting": false
+      },
+      {
+        "number": 18,
+        "role": "ATT",
+        "nationality": "FRANCE",
+        "surname": "Benzema",
+        "name": "Karim",
+        "captain": false,
+        "starting": false
+      }
+    ],
+    "name": "France Legends",
+    "formation": "4-3-3"
+  }
+]}
